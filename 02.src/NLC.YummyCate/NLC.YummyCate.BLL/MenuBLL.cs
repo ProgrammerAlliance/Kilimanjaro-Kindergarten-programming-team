@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.BLL
 {
-    class UserBLL
+    class MenuBLL
     {
     }
 }
