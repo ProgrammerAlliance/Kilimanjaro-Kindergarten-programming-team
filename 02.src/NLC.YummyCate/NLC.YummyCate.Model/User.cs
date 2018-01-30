@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.Model
 {
-	class User
+    public class User
 	{
-	}
+       
+
+    }
 }
