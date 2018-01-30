@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26483DF2-E246-4EF0-AD2B-72DC6DDFFD6E}</ProjectGuid>
+    <ProjectGuid>{2D05E106-A775-46C5-9CF9-E3ECAE623138}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NLC.YummyCate.BLL</RootNamespace>
