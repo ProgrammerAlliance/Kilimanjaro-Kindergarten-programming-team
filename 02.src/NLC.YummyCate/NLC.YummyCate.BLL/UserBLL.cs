@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.BLL
 {
-    class UserBLL
-    {
-
+    public class UserBLL
+    {/// <summary>
+     /// 用户登陆
+     /// </summary>
+        public bool Login()
+        {
+            return true;
+        }
+       
     }
 }

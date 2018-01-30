@@ -9,16 +9,32 @@ namespace NLC.YummyCate.IDAL
 {
   public  interface IUserDAL
 	{
-       
-            //long Add(User model);
+        /// <summary>
+        /// 添加用户
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        long Add(User model);
+        /// <summary>
+        /// 删除用户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        bool Delete(long id);
+        /// <summary>
+        /// 更新用户
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        bool Update(User model);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        User GetModel(long id);
 
-            //bool Delete(long id);
+        List<User> GetList(string query);
 
-            //bool Update(User model);
-
-            //User GetModel(long id);
-
-            //List<User> GetList(string query);
-        
     }
 }
