@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.BLL
 {
-  public class UserBLL
+    class UserBLL
     {
-        public void Login()
-        {
 
-        }
     }
 }
