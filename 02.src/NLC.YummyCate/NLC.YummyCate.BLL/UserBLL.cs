@@ -8,5 +8,6 @@ namespace NLC.YummyCate.BLL
 {
     class UserBLL
     {
+
     }
 }
