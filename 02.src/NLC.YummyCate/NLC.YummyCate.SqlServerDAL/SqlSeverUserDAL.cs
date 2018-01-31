@@ -8,14 +8,25 @@ using System.Data.SqlClient;
 
 namespace NLC.YummyCate.SqlServerDAL
 {
-  public  class SqlSeverUserDal
+    public class SqlSeverUserDal
     {
-        string connStr = "Data";
-        SqlConnection conn = new SqlConnection();
-        string selectsql = "select * from StaffInformation";
-        SqlCommand cmd = new SqlCommand(selectsql, conn);
-
-
+        string selectsql = "select * from StaffInformation where UserName=";
+        /// <summary>
+        /// 执行User数据库
+        /// </summary>
+        public bool ProduceDataOperation()
+        {
+            DBHelper db = new DBHelper();
+            int i= db.ExecuteNonQuery(selectsql);
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }

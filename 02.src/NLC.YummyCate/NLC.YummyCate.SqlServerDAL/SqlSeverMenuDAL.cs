@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.SqlServerDAL
 {
-    class SqlSeverMenuDAL
+  public  class SqlSeverMenuDAL
     {
     }
 }
