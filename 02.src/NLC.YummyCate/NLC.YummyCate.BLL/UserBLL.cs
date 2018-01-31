@@ -20,7 +20,7 @@ namespace NLC.YummyCate.BLL
 			DataUsersDataContext dm = new DataUsersDataContext();
 
 			//统计Users表中符合条件的对象的数目
-			int num = dm.User.Count(u => u.Name == name);
+			int num = dm.Users.Count(u => u.Name == name);
 
 			//如果查询得到的数目大于0，说明该用户存在
 			bool exist = num > 0;
