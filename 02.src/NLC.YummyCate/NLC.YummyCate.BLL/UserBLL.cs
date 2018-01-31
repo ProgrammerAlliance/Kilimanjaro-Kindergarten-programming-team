@@ -14,6 +14,5 @@ namespace NLC.YummyCate.BLL
         {
             return true;
         }
-       
     }
 }

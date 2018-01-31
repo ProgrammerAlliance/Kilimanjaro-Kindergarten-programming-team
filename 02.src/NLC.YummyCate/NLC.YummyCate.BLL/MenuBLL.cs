@@ -13,21 +13,23 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         public void AddDish()
         { }
+
         /// <summary>
         /// 删除菜品
         /// </summary>
         public void DeleteDish()
         { }
+
         /// <summary>
         /// 修改菜品
         /// </summary>
         public void MotifyDish()
         { }
+
         /// <summary>
         ///得到所有菜品信息
         /// </summary>
-        public void GetAllDishs()
+        public void GetAllDishs() 
         { }
-
     }
 }

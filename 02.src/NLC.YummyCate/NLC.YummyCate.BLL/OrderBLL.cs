@@ -11,21 +11,21 @@ namespace NLC.YummyCate.BLL
         /// <summary>
         /// 确认订餐
         /// </summary>
-        public void ConfirmOrder()
+        public void ConfirmOrder() 
         {
 
         }
         /// <summary>
         /// 取消订餐
         /// </summary>
-        public void CancelOrder()
+        public void CancelOrder() 
         {
 
         }
         /// <summary>
         /// 产生打扫人员
         /// </summary>
-        public void ProduceCleaner()
+        public void ProduceCleaner() 
         {
 
         }
@@ -37,11 +37,12 @@ namespace NLC.YummyCate.BLL
         {
             return 2332;
         }
+
         /// <summary>
         /// 统计人数
         /// </summary>
         /// <returns></returns>
-        public int CountOrderNumber()
+        public int CountOrderNumber() 
         {
             return 21;
         }
