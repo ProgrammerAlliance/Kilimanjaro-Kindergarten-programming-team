@@ -28,10 +28,10 @@ namespace NLC.YummyCate.DBUtility
     public partial class DBHelper
     {
         #region Constructors
-		
+        
         public DBHelper()
         {
-            ConnectionStringSettings css = new ConnectionStringSettings("","", "System.Data.SqlClient");
+            ConnectionStringSettings css = ConfigurationManager.ConnectionStrings["MyCN"];
 
             _factory = DbProviderFactories.GetFactory(css.ProviderName);
             _connectionString = css.ConnectionString;
@@ -93,8 +93,6 @@ namespace NLC.YummyCate.DBUtility
                     action(reader);
             }
         }
-
-
 
         private string GetProviderParameterFormatString()
         {
@@ -184,7 +182,7 @@ namespace NLC.YummyCate.DBUtility
 
         #region ExecuteNonQuery
 
-        public int ExecuteNonQuery(DbCommand command, DbConnection connection)
+        private int ExecuteNonQuery(DbCommand command, DbConnection connection)
         {
             OnExecuteCommand(command);
 
@@ -193,7 +191,7 @@ namespace NLC.YummyCate.DBUtility
             return command.ExecuteNonQuery();
         }
 
-        public int ExecuteNonQuery(DbCommand command, DbTransaction transaction)
+        private int ExecuteNonQuery(DbCommand command, DbTransaction transaction)
         {
             OnExecuteCommand(command);
 
@@ -203,7 +201,7 @@ namespace NLC.YummyCate.DBUtility
             return command.ExecuteNonQuery();
         }
 
-        public int ExecuteNonQuery(DbCommand command)
+        private int ExecuteNonQuery(DbCommand command)
         {
             int affectedRows;
 
@@ -243,10 +241,9 @@ namespace NLC.YummyCate.DBUtility
 
         #endregion
 
-
         #region ExecuteReader
 
-        public DbDataReader ExecuteReader(DbCommand command, DbConnection connection)
+        private DbDataReader ExecuteReader(DbCommand command, DbConnection connection)
         {
             OnExecuteCommand(command);
 
@@ -255,7 +252,7 @@ namespace NLC.YummyCate.DBUtility
             return command.ExecuteReader();
         }
 
-        public DbDataReader ExecuteReader(DbCommand command, DbTransaction transaction)
+        private DbDataReader ExecuteReader(DbCommand command, DbTransaction transaction)
         {
             OnExecuteCommand(command);
 
@@ -265,7 +262,7 @@ namespace NLC.YummyCate.DBUtility
             return command.ExecuteReader();
         }
 
-        public DbDataReader ExecuteReader(DbCommand command)
+        private DbDataReader ExecuteReader(DbCommand command)
         {
             OnExecuteCommand(command);
 
@@ -280,19 +277,19 @@ namespace NLC.YummyCate.DBUtility
 
         #region ExecuteReader
 
-        public DbDataReader ExecuteReader(string commandText, DbConnection connection)
+        private DbDataReader ExecuteReader(string commandText, DbConnection connection)
         {
             var command = CreateCommand(commandText);
             return ExecuteReader(command, connection);
         }
 
-        public DbDataReader ExecuteReader(string commandText, DbTransaction transaction)
+        private DbDataReader ExecuteReader(string commandText, DbTransaction transaction)
         {
             var command = CreateCommand(commandText);
             return ExecuteReader(command, transaction);
         }
 
-        public DbDataReader ExecuteReader(string commandText)
+        private DbDataReader ExecuteReader(string commandText)
         {
             var command = CreateCommand(commandText);
             return ExecuteReader(command);
@@ -300,11 +297,9 @@ namespace NLC.YummyCate.DBUtility
 
         #endregion
 
-
         #region ExecuteScalar
 
-
-        public object ExecuteScalar(DbCommand command, DbConnection connection)
+        private object ExecuteScalar(DbCommand command, DbConnection connection)
         {
             OnExecuteCommand(command);
 
@@ -315,7 +310,7 @@ namespace NLC.YummyCate.DBUtility
             return value;
         }
 
-        public object ExecuteScalar(DbCommand command, DbTransaction transaction)
+        private object ExecuteScalar(DbCommand command, DbTransaction transaction)
         {
             OnExecuteCommand(command);
 
@@ -327,7 +322,7 @@ namespace NLC.YummyCate.DBUtility
             return value;
         }
 
-        public object ExecuteScalar(DbCommand command)
+        private object ExecuteScalar(DbCommand command)
         {
             using (DbConnection connection = CreateConnection())
             {
@@ -347,32 +342,29 @@ namespace NLC.YummyCate.DBUtility
 
         #region ExecuteScalar
 
-        public object ExecuteScalar(string commandText, DbConnection connection)
+        private object ExecuteScalar(string commandText, DbConnection connection)
         {
             var command = CreateCommand(commandText);
             return ExecuteScalar(command, connection);
         }
 
-        public object ExecuteScalar(string commandText, DbTransaction transaction)
+        private object ExecuteScalar(string commandText, DbTransaction transaction)
         {
             var command = CreateCommand(commandText);
             return ExecuteScalar(command, transaction);
         }
-
-
-        public object ExecuteScalar(string commandText)
+        
+        private object ExecuteScalar(string commandText)
         {
             var command = CreateCommand(commandText);
             return ExecuteScalar(command);
         }
-
-
-
+        
         #endregion
 
         #region ExecuteList<T>
 
-        public List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, int startRecord, int maxRecords, DbConnection connection)
+        private List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, int startRecord, int maxRecords, DbConnection connection)
         {
             var list = new List<T>();
 
@@ -389,7 +381,7 @@ namespace NLC.YummyCate.DBUtility
             return list;
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, int startRecord, int maxRecords, DbTransaction transaction)
+        private List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, int startRecord, int maxRecords, DbTransaction transaction)
         {
             var list = new List<T>();
 
@@ -406,7 +398,7 @@ namespace NLC.YummyCate.DBUtility
             return list;
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, int startRecord, int maxRecords)
+        private List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, int startRecord, int maxRecords)
         {
             List<T> list;
 
@@ -422,36 +414,36 @@ namespace NLC.YummyCate.DBUtility
             return list;
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, DbConnection connection)
+        private List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, DbConnection connection)
         {
             return ExecuteList<T>(command, converter, 0, 0, connection);
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, DbTransaction transaction)
+        private List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter, DbTransaction transaction)
         {
             return ExecuteList<T>(command, converter, 0, 0, transaction);
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter)
+        private List<T> ExecuteList<T>(DbCommand command, Converter<DbDataReader, T> converter)
         {
             return ExecuteList<T>(command, converter, 0, 0);
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, DbConnection connection)
+        private List<T> ExecuteList<T>(DbCommand command, DbConnection connection)
             where T : new()
         {
             var converter = GetDataReaderConverter<T>();
             return ExecuteList<T>(command, converter, connection);
         }
 
-        public List<T> ExecuteList<T>(DbCommand command, DbTransaction transaction)
+        private List<T> ExecuteList<T>(DbCommand command, DbTransaction transaction)
             where T : new()
         {
             var converter = GetDataReaderConverter<T>();
             return ExecuteList<T>(command, converter, transaction);
         }
 
-        public List<T> ExecuteList<T>(DbCommand command)
+        private List<T> ExecuteList<T>(DbCommand command)
             where T : new()
         {
             var converter = GetDataReaderConverter<T>();
@@ -462,39 +454,21 @@ namespace NLC.YummyCate.DBUtility
 
         #region ExecuteList<T>
 
-        //public List<T> ExecuteList<T>(string commandText, Converter<DbDataReader, T> converter, DbConnection connection)
-        //{
-        //    var command = CreateCommand(commandText);
-        //    return ExecuteList<T>(command, converter, connection);
-        //}
-
-        //public List<T> ExecuteList<T>(string commandText, Converter<DbDataReader, T> converter, DbTransaction transaction)
-        //{
-        //    var command = CreateCommand(commandText);
-        //    return ExecuteList<T>(command, converter, transaction);
-        //}
-        //public List<T> ExecuteList<T>(string commandText, Converter<DbDataReader, T> converter)
-        //{
-        //    var command = CreateCommand(commandText);
-        //    return ExecuteList<T>(command, converter);
-        //}
-
-        public List<T> ExecuteList<T>(string commandText, DbConnection connection)
+        private List<T> ExecuteList<T>(string commandText, DbConnection connection)
             where T : new()
         {
             var command = CreateCommand(commandText);
             return ExecuteList<T>(command, connection);
         }
 
-        public List<T> ExecuteList<T>(string commandText, DbTransaction transaction)
+        private List<T> ExecuteList<T>(string commandText, DbTransaction transaction)
             where T : new()
         {
             var command = CreateCommand(commandText);
             return ExecuteList<T>(command, transaction);
         }
-
-
-        public List<T> ExecuteList<T>(string commandText)
+        
+        private List<T> ExecuteList<T>(string commandText)
             where T : new()
         {
             var command = CreateCommand(commandText);
@@ -502,8 +476,5 @@ namespace NLC.YummyCate.DBUtility
         }
 
         #endregion
-
-
-
     }
 }
