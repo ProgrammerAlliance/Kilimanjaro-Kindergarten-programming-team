@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.BLL
 {
-   public class OrderBLL
+    public class OrderBLL
     {
         /// <summary>
         /// 确认订餐
@@ -41,7 +41,7 @@ namespace NLC.YummyCate.BLL
         /// 统计人数
         /// </summary>
         /// <returns></returns>
-        public int  CountOrderNumber()
+        public int CountOrderNumber()
         {
             return 21;
         }

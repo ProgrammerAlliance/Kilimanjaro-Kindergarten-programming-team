@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.BLL
 {
- public   class MenuBLL
+    public class MenuBLL
     {
         /// <summary>
         ///增加菜品
@@ -28,6 +28,6 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         public void GetAllDishs()
         { }
-          
+
     }
 }
