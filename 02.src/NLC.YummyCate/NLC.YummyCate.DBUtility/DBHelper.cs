@@ -28,9 +28,7 @@ namespace NLC.YummyCate.DBUtility
     public partial class DBHelper
     {
         #region Constructors
-
-        
-
+		
         public DBHelper()
         {
             ConnectionStringSettings css = new ConnectionStringSettings("","", "System.Data.SqlClient");
