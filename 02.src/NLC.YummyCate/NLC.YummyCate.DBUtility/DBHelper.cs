@@ -28,9 +28,7 @@ namespace NLC.YummyCate.DBUtility
     public partial class DBHelper
     {
         #region Constructors
-
         
-
         public DBHelper()
         {
             ConnectionStringSettings css = new ConnectionStringSettings("","", "System.Data.SqlClient");
@@ -95,8 +93,6 @@ namespace NLC.YummyCate.DBUtility
                     action(reader);
             }
         }
-
-
 
         private string GetProviderParameterFormatString()
         {
@@ -245,7 +241,6 @@ namespace NLC.YummyCate.DBUtility
 
         #endregion
 
-
         #region ExecuteReader
 
         public DbDataReader ExecuteReader(DbCommand command, DbConnection connection)
@@ -302,9 +297,7 @@ namespace NLC.YummyCate.DBUtility
 
         #endregion
 
-
         #region ExecuteScalar
-
 
         public object ExecuteScalar(DbCommand command, DbConnection connection)
         {
@@ -360,16 +353,13 @@ namespace NLC.YummyCate.DBUtility
             var command = CreateCommand(commandText);
             return ExecuteScalar(command, transaction);
         }
-
-
+        
         public object ExecuteScalar(string commandText)
         {
             var command = CreateCommand(commandText);
             return ExecuteScalar(command);
         }
-
-
-
+        
         #endregion
 
         #region ExecuteList<T>
@@ -494,8 +484,7 @@ namespace NLC.YummyCate.DBUtility
             var command = CreateCommand(commandText);
             return ExecuteList<T>(command, transaction);
         }
-
-
+        
         public List<T> ExecuteList<T>(string commandText)
             where T : new()
         {
@@ -504,8 +493,5 @@ namespace NLC.YummyCate.DBUtility
         }
 
         #endregion
-
-
-
     }
 }
