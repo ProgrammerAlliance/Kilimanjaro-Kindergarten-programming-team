@@ -27,7 +27,8 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         public void ProduceCleaner() 
         {
-
+			Random rd = new Random();
+			int i = rd.Next(1, 15);//15是order表的orderid,或者个数
         }
 
         /// <summary>
