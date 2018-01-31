@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.IBLL
 {
-    interface IUserBLL
+    public interface IUserBLL
     {
+        bool Login(string userInfo);
     }
 }

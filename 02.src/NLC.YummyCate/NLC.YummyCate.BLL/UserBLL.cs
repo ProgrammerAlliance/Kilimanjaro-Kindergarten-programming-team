@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLC.YummyCate.IBLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.BLL
 {
-	public class UserBLL
+	public class UserBLL:IUserBLL
 	{
 		
 		/// <summary>
@@ -26,7 +27,13 @@ namespace NLC.YummyCate.BLL
 			bool exist = num > 0;
 			return exist;
 		}
-	}
+
+        public bool Login(string userInfo)
+        {
+
+            return 
+        }
+    }
 
 	/// <summary>
 	/// 用户登陆
