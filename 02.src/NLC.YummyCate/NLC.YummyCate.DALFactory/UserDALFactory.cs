@@ -13,6 +13,6 @@ namespace NLC.YummyCate.DALFactory
         public static IUserDAL CreateUserDAL()
         {
             return new UserDAL();
-        }
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     }
 }

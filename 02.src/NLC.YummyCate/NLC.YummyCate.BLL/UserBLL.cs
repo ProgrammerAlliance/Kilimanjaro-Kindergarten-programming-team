@@ -20,8 +20,20 @@ namespace NLC.YummyCate.BLL
         public bool UserLogin(string userName, string password)
         {
             IUserDAL userDAL = UserDALFactory.CreateUserDAL();
-            return false;
+            List<User> _user = userDAL.FindByUserName(userName);
+            if (_user == null || _user.Count == 0)
+            {
+                return false;
+            }
+            else if (_user.Count == 1)
+            {
+                if (password != _user[0].Password)  
+                {
+                    return false;
+                }
+            }
+            return true;
         }
-        
+
     }
 }

@@ -15,7 +15,9 @@ namespace NLC.YummyCate.DAL
     {
         public List<User> FindByUserName(string userName)
         {
-            throw new NotImplementedException();
+            string sql = "SELECT UserName,PassWord FROM UserInformation WHERE UserName = " + userName;
+            DBHelper dBHelper = new DBHelper();
+            return dBHelper.ExecuteList<User>(sql);
         }
     }
 }
