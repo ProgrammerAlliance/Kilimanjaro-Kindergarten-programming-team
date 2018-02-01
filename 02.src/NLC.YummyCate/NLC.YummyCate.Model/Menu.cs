@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.Model
 {
-	class Menu
+	 class Menu:ModelBase
 	{
 	}
 }

@@ -10,7 +10,7 @@ namespace NLC.YummyCate.SqlServerDAL
 {
     public class SqlSeverUserDal
     {
-        string selectsql = "select * from StaffInformation where UserName=";
+        string selectsql = "select * from StaffInformation where UserName=&&PassWord=";
         /// <summary>
         /// 执行User数据库
         /// </summary>
