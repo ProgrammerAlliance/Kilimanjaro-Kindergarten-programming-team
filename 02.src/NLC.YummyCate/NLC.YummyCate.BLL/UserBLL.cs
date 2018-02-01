@@ -17,23 +17,22 @@ namespace NLC.YummyCate.BLL
         /// <param name="userName"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool UserLogin(string userName, string password)
+        public OperationResult<Boolean> UserLogin(string userName, string password)
         {
             IUserDAL userDAL = UserDALFactory.CreateUserDAL();
             List<User> _user = userDAL.FindByUserName(userName);
             if (_user == null || _user.Count == 0)
             {
-                return false;
+                return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
             }
             else if (_user.Count == 1)
             {
-                if (password != _user[0].Password)  
+                if (password != _user[0].Password)
                 {
-                    return false;
+                    return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
                 }
             }
-            return true;
+            return new OperationResult<bool>() { Result = true, Message = "登录成功" };
         }
-
     }
 }
