@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLC.YummyCate.IBLL
+namespace NLC.YummyCate.DAL
 {
-    interface IMenuBLL
+    class MenuDAL
     {
     }
 }

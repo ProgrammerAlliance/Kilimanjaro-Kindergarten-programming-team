@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLC.YummyCate.BLLFactory
+namespace NLC.YummyCate.DAL
 {
-    class OrderBLLFactory
+    class OrderDAL
     {
     }
 }

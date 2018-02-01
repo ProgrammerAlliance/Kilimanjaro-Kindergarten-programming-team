@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using NLC.YummyCate.DBUtility;
 using System.Data.SqlClient;
 
-namespace NLC.YummyCate.SqlServerDAL
+namespace NLC.YummyCate.DAL
 {
-  public  class SqlSeverUserDal
+    public class UserDAL
     {
         string connStr = "Data";
         SqlConnection conn = new SqlConnection();
