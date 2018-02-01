@@ -1,4 +1,5 @@
 ﻿using NLC.YummyCate.IDAL;
+using NLC.YummyCate.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.DAL
 {
-    public class OrderDAL : IDal
+    public class OrderDAL : IEntityDAL<Order>
     {
-        void IDal.AddEntity<T>(T entity)
+        public void AddEntity(Order entity)
         {
             throw new NotImplementedException();
         }
 
-        void IDal.DeleteEntity<T>(T entity)
+        public void DeleteEntity(Order entity)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<T> IDal.GetEntities<T>(Expression<Func<T, bool>> expression)
+        public IEnumerable<Order> GetEntities(Expression<Func<Order, bool>> expression)
         {
             throw new NotImplementedException();
         }
 
-        T IDal.GetEntity<T>(int id)
+        public Order GetEntity(int id)
         {
             throw new NotImplementedException();
         }
 
-        bool IDal.UpdateEntity<T>(T entity)
+        public bool UpdateEntity(Order entity)
         {
             throw new NotImplementedException();
         }

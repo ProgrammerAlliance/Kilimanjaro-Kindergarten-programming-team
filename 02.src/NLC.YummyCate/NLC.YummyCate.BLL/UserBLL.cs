@@ -1,4 +1,5 @@
 ﻿using NLC.YummyCate.DALFactory;
+using NLC.YummyCate.IDAL;
 using NLC.YummyCate.Model;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace NLC.YummyCate.BLL
         /// <returns></returns>
         public bool UserLogin(string userName, string password)
         {
-            //DataAccess.CreateDAL();
+            IUserDAL userDAL = UserDALFactory.CreateUserDAL();
             return false;
         }
         
