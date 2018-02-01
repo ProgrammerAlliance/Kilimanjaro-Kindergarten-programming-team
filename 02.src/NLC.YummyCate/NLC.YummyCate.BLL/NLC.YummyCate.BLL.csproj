@@ -46,9 +46,17 @@
     <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NLC.YummyCate.IBLL\NLC.YummyCate.IBLL.csproj">
-      <Project>{6B8EEAFA-2456-45C8-9FBA-86E17CC7C0BC}</Project>
-      <Name>NLC.YummyCate.IBLL</Name>
+    <ProjectReference Include="..\NLC.YummyCate.DALFactory\NLC.YummyCate.DALFactory.csproj">
+      <Project>{851E42DD-3889-4336-AC63-C1CC21AECAAD}</Project>
+      <Name>NLC.YummyCate.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLC.YummyCate.IDAL\NLC.YummyCate.IDAL.csproj">
+      <Project>{5108CE04-3243-4D4F-A34F-CFCBA4EA756C}</Project>
+      <Name>NLC.YummyCate.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLC.YummyCate.Model\NLC.YummyCate.Model.csproj">
+      <Project>{8F2092B6-2E13-4F6F-A012-717C47F3595D}</Project>
+      <Name>NLC.YummyCate.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

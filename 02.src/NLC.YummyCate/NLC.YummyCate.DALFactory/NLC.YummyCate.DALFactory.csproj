@@ -44,5 +44,15 @@
     <Compile Include="DataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NLC.YummyCate.IDAL\NLC.YummyCate.IDAL.csproj">
+      <Project>{5108CE04-3243-4D4F-A34F-CFCBA4EA756C}</Project>
+      <Name>NLC.YummyCate.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLC.YummyCate.SqlServerDAL\NLC.YummyCate.DAL.csproj">
+      <Project>{93E18FCE-2D37-4643-890D-502973635CFC}</Project>
+      <Name>NLC.YummyCate.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

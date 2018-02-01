@@ -50,6 +50,14 @@
       <Project>{457cfc90-ca1d-4723-a74f-352204b083ab}</Project>
       <Name>NLC.YummyCate.DBUtility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NLC.YummyCate.IDAL\NLC.YummyCate.IDAL.csproj">
+      <Project>{5108CE04-3243-4D4F-A34F-CFCBA4EA756C}</Project>
+      <Name>NLC.YummyCate.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLC.YummyCate.Model\NLC.YummyCate.Model.csproj">
+      <Project>{8F2092B6-2E13-4F6F-A012-717C47F3595D}</Project>
+      <Name>NLC.YummyCate.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.Model
 {
-	public  abstract class ModelBase
-	{
-	}
+    public abstract class ModelBase
+    {
+    }
 }
