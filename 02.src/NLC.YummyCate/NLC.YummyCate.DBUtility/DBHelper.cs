@@ -221,13 +221,13 @@ namespace NLC.YummyCate.DBUtility
 
         #region ExecuteNonQuery
 
-        public int ExecuteNonQuery(string commandText, DbConnection connection)
+        private int ExecuteNonQuery(string commandText, DbConnection connection)
         {
             var command = CreateCommand(commandText);
             return ExecuteNonQuery(command, connection);
         }
 
-        public int ExecuteNonQuery(string commandText, DbTransaction transaction)
+        private int ExecuteNonQuery(string commandText, DbTransaction transaction)
         {
             var command = CreateCommand(commandText);
             return ExecuteNonQuery(command, transaction);
@@ -289,7 +289,7 @@ namespace NLC.YummyCate.DBUtility
             return ExecuteReader(command, transaction);
         }
 
-        private DbDataReader ExecuteReader(string commandText)
+        public DbDataReader ExecuteReader(string commandText)
         {
             var command = CreateCommand(commandText);
             return ExecuteReader(command);
@@ -354,7 +354,7 @@ namespace NLC.YummyCate.DBUtility
             return ExecuteScalar(command, transaction);
         }
         
-        private object ExecuteScalar(string commandText)
+        public object ExecuteScalar(string commandText)
         {
             var command = CreateCommand(commandText);
             return ExecuteScalar(command);
@@ -468,7 +468,7 @@ namespace NLC.YummyCate.DBUtility
             return ExecuteList<T>(command, transaction);
         }
         
-        private List<T> ExecuteList<T>(string commandText)
+        public List<T> ExecuteList<T>(string commandText)
             where T : new()
         {
             var command = CreateCommand(commandText);
