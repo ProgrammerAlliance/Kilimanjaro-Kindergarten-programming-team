@@ -16,7 +16,7 @@ namespace NLC.YummyCate.Model
         /// <summary>
         /// 密码
         /// </summary>
-        public string Password { get; set; }
+        public string Pwd { get; set; }
 
         /// <summary>
         /// 用户名
@@ -26,7 +26,7 @@ namespace NLC.YummyCate.Model
         /// <summary>
         /// 权限编号
         /// </summary>
-        public int AuthorityNumber { get; set; }
+        public AuthorityEnum TypeID { get; set; }
 
         /// <summary>
         /// 权限名称
@@ -41,13 +41,11 @@ namespace NLC.YummyCate.Model
         /// <summary>
         /// 部门名称
         /// </summary>
-        public string DepatementName { get; set; }
+        public string DepartmentName { get; set; }
 
         /// <summary>
         /// 部门编号
         /// </summary>
-        public int StaffID { get; set; }
-
-
+        public int DepartmentID { get; set; }
     }
 }

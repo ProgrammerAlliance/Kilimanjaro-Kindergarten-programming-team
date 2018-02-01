@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("NLC.YummyCate.WebApi")]
+[assembly: AssemblyTitle("NLC.YummyCate.WebApplication")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NLC.YummyCate.WebApi")]
+[assembly: AssemblyProduct("NLC.YummyCate.WebApplication")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID
-[assembly: Guid("10c2625b-0b91-4dd5-90ff-bae8d44d50a7")]
+[assembly: Guid("a0829c1b-edce-4de3-875f-c87d921c10d4")]
 
 // 程序集的版本信息由下列四个值组成:
 //

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorityEnum.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="OperationResult.cs" />

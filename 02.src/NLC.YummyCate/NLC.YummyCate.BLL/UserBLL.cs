@@ -21,18 +21,36 @@ namespace NLC.YummyCate.BLL
         {
             IUserDAL userDAL = UserDALFactory.CreateUserDAL();
             List<User> _user = userDAL.FindByUserName(userName);
+
             if (_user == null || _user.Count == 0)
             {
                 return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
             }
             else if (_user.Count == 1)
             {
-                if (password != _user[0].Password)
+                if (password != _user[0].Pwd)
                 {
                     return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
                 }
+
+                if (_user[0].TypeID == AuthorityEnum.NormalUser)
+                {
+                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.NormalUser };
+                }
+                else if(_user[0].TypeID == AuthorityEnum.Administor)
+                {
+                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.Administor };
+                }
+                else
+                {
+                    throw new Exception("用户异常");
+                }
+
             }
-            return new OperationResult<bool>() { Result = true, Message = "登录成功" };
+            else
+            {
+                return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
+            }
         }
     }
 }

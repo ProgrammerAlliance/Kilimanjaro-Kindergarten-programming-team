@@ -11,5 +11,7 @@ namespace NLC.YummyCate.Model
         public string Message { get; set; }
 
         public T Result { get; set; }
+
+        public AuthorityEnum Authority { get; set; }
     }
 }

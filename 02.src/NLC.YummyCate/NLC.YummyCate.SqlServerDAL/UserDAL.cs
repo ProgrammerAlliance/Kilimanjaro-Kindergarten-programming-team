@@ -15,7 +15,7 @@ namespace NLC.YummyCate.DAL
     {
         public List<User> FindByUserName(string userName)
         {
-            string sql = "SELECT UserName,PassWord FROM UserInformation WHERE UserName = " + userName;
+            string sql = "SELECT UserName,Pwd,TypeID FROM UserInformation WHERE IsDeleted = 0 AND UserName = '" + userName + "'";
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<User>(sql);
         }
