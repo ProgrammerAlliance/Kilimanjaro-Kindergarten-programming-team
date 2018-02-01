@@ -1,4 +1,5 @@
 ﻿using NLC.YummyCate.IDAL;
+using NLC.YummyCate.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +9,30 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.DAL
 {
-    public class MenuDAL : IDal
+
+    public class MenuDAL : IEntityDAL<Menu>
     {
-        void IDal.AddEntity<T>(T entity)
+        public void AddEntity(Menu entity)
         {
             throw new NotImplementedException();
         }
 
-        void IDal.DeleteEntity<T>(T entity)
+        public void DeleteEntity(Menu entity)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<T> IDal.GetEntities<T>(Expression<Func<T, bool>> expression)
+        public IEnumerable<Menu> GetEntities(Expression<Func<Menu, bool>> expression)
         {
             throw new NotImplementedException();
         }
 
-        T IDal.GetEntity<T>(int id)
+        public Menu GetEntity(int id)
         {
             throw new NotImplementedException();
         }
 
-        bool IDal.UpdateEntity<T>(T entity)
+        public bool UpdateEntity(Menu entity)
         {
             throw new NotImplementedException();
         }

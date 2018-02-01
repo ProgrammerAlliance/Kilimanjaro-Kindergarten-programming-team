@@ -12,30 +12,6 @@ namespace NLC.YummyCate.DALFactory
 {
     public abstract class DataAccess
     {
-        public abstract IDal CreateDAL();
-    }
-
-    public class UserCreateDAL : DataAccess
-    {
-        public override IDal CreateDAL()
-        {
-            return new UserDAL();
-        }
-    }
-
-    public class MenuCreateDAL : DataAccess
-    {
-        public override IDal CreateDAL()
-        {
-            return new MenuDAL();
-        }
-    }
-
-    public class OrderCreateDAL : DataAccess
-    {
-        public override IDal CreateDAL()
-        {
-            return new OrderDAL();
-        }
+        
     }
 }
