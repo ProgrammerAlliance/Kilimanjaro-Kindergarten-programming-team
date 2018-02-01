@@ -45,5 +45,11 @@
     <Compile Include="OrderDAL.cs" />
     <Compile Include="UserDAL.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NLC.YummyCate.DBUtility\NLC.YummyCate.DBUtility.csproj">
+      <Project>{457cfc90-ca1d-4723-a74f-352204b083ab}</Project>
+      <Name>NLC.YummyCate.DBUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
