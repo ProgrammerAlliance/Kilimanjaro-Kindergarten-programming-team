@@ -62,12 +62,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NLC.YummyCate.WebApi\NLC.YummyCate.WebApi.csproj">
-      <Project>{10C2625B-0B91-4DD5-90FF-BAE8D44D50A7}</Project>
-      <Name>NLC.YummyCate.WebApi</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
