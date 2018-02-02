@@ -22,7 +22,7 @@ namespace NLC.YummyCate.BLL
             IUserDAL userDAL = UserDALFactory.CreateUserDAL();
             List<User> _user = userDAL.FindByUserName(userName);
 
-            if (_user == null || _user.Count == 0)
+            if (_user == null || _user.Count <= 0)
             {
                 return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
             }
@@ -45,7 +45,6 @@ namespace NLC.YummyCate.BLL
                 {
                     throw new Exception("用户异常");
                 }
-
             }
             else
             {
