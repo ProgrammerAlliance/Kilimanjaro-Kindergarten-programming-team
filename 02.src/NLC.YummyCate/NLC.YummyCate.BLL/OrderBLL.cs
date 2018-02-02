@@ -24,7 +24,7 @@ namespace NLC.YummyCate.BLL
             }
             if (_user.Count == 1)
             {
-                if (_user[0].OrderState)
+                if (_user[0].OrderingStateID==1)//
                 {
                     return new OperationResult<bool>() { Result = true, Message = "订餐成功",};
                 }
