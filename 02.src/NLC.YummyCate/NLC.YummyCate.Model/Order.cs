@@ -11,37 +11,54 @@ namespace NLC.YummyCate.Model
         /// <summary>
         /// 点餐号
         /// </summary>
-        public int OrderPointNumber { get; set; }
+        public int OrderID { get; set; }
+
+		/// <summary>
+		/// 菜单号
+		/// </summary>
+		public int OrderMenuCount { get; set; } 
 
         /// <summary>
         /// 订餐的人数
         /// </summary>
-        public int OrderNumber { get; set; }
+        public int OrderPersonCount { get; set; }
 
         /// <summary>
         /// 订餐总金额
         /// </summary>
-        public float TotalAmount { get; set; }
+        public float OrderMoney { get; set; }
 
         /// <summary>
         /// 预算金额
         /// </summary>
-        public float BudgetAmount { get; set; }
+        public float Budget { get; set; }
 
         /// <summary>
         /// 时间
         /// </summary>
-        public DateTime Time { get; set; }
+        public DateTime DateTime { get; set; }
 
         /// <summary>
         /// 打扫人员
         /// </summary>
-        public int CleanStaff { get; set; }
+        public int ClearPeople { get; set; }
 
         /// <summary>
         /// 订餐状态
         /// </summary>
-        public bool OrderState { get; set; }
+        public bool OrderingStateName { get; set; }
+
+		/// <summary>
+		/// 订餐状态编号
+		/// </summary>
+		public int OrderingStateID { get; set; }
+
+		/// <summary>
+		/// 员工号
+		/// </summary>
+		public int StaffID { get; set; }
+
+
 
     }
 }
