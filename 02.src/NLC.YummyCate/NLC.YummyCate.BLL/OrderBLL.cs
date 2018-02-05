@@ -56,11 +56,10 @@ namespace NLC.YummyCate.BLL
 		/// 产生打扫人员
 		/// </summary>
 		public void ProduceCleaner()
-		{//得到所有的打扫人数
+		{
+			//得到所有的打扫人数
 			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
 			List<Order> _user = orderDAL.FindByUserOrder();
-
-
 		}
 
 		/// <summary>
@@ -85,17 +84,20 @@ namespace NLC.YummyCate.BLL
 		/// </summary>
 		/// <param name="count"></param>
 		/// <returns></returns>
-		private string[] ProduceRandom(int count)
+		private void  ProduceRandom(int count)
 		{
-			int[] a = new int[2];
-			Random r = new Random();
+			//int number = new Random().Next(0, 100);
+			int[] values = new int[2];
+			Random random = new Random();
 			for (int i = 0; i < 2; i++)
-				a[i] = r.Next(0, 50);
-			string asd= a[0].ToString();
-			string qwe = a[1].ToString();
-			Console.WriteLine(asd);
-			Console.WriteLine(qwe);
+				values[i] = random.Next(0,count);
+			string randomName1 = values[0].ToString();
+			string randomName2 = values[1].ToString();
+			while (randomName1 == randomName2)
+				values[1] = random.Next(0, count);
+			Console.WriteLine(randomName1);
+			Console.WriteLine(randomName2);
 			Console.ReadKey();
 		}
-    }
+	}
 }
