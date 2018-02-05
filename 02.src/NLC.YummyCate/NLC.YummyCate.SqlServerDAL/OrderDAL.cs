@@ -1,4 +1,5 @@
-﻿using NLC.YummyCate.IDAL;
+﻿using NLC.YummyCate.DBUtility;
+using NLC.YummyCate.IDAL;
 using NLC.YummyCate.Model;
 using System;
 using System.Collections.Generic;
@@ -9,31 +10,31 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.DAL
 {
-    public class OrderDAL : IEntityDAL<Order>
+    public class OrderDAL : IOrderDAL
     {
-        public void AddEntity(Order entity)
+        public List<Order> DeleteUserOrder(string userName)
         {
-            throw new NotImplementedException();
+            string sql = "Update Orderinginformation SET OrderingStateID=2 WHERE  UserName = '" + userName + "'";
+            DBHelper dBHelper = new DBHelper();
+            return dBHelper.ExecuteList<Order>(sql);
+        }
+        /// <summary>
+        /// 查询所有的订餐信息人数，返回所有订餐的人数
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public List<Order> FindByUserOrder(string userName)
+        {
+            string sql = "SELECT * FROM Orderinginformation";
+            DBHelper dBHelper = new DBHelper();
+            return dBHelper.ExecuteList<Order>(sql);
         }
 
-        public void DeleteEntity(Order entity)
+        public List<Order> InsertUserOrder(string userName)//1代表订餐2未订餐
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Order> GetEntities(Expression<Func<Order, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order GetEntity(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateEntity(Order entity)
-        {
-            throw new NotImplementedException();
+            string sql = "Insert Orderinginformation (OrderingStateID,UserName)  values(1,'userName')";
+            DBHelper dBHelper = new DBHelper();
+            return dBHelper.ExecuteList<Order>(sql);
         }
     }
 }

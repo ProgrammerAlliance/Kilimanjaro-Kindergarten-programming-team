@@ -29,9 +29,9 @@ namespace NLC.YummyCate.WebApi.Controllers
         }
 
         [HttpGet]
-        public bool Test()
+        public string Test()
         {
-            return true;
+            return string.Format("username:");
         }
     }
 }
