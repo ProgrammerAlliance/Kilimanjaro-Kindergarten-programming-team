@@ -45,7 +45,6 @@ namespace NLC.YummyCate.BLL
                 {
                     throw new Exception("用户异常");
                 }
-
             }
             else
             {
