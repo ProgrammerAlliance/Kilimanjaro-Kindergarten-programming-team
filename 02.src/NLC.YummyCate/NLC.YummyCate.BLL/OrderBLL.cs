@@ -52,15 +52,15 @@ namespace NLC.YummyCate.BLL
         {
             //1.得到所有的打扫人数
 
-            int orderCount = CountOrderNumber();
+           // int orderCount = CountOrderNumber();
 			//2.得到随机数
-			List<int> random = ProduceRandom(orderCount);
+		//	List<int> random = ProduceRandom(orderCount);
 			//3.查找相关人员
 			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.FindByUserOrder(userName);
-			if(random >= 1)
-			{
-			}
+			//if(random >= 1)
+			//{
+			//}
         }
 
         /// <summary>
@@ -75,11 +75,11 @@ namespace NLC.YummyCate.BLL
         /// 统计人数
         /// </summary>
         /// <returns></returns>
-        public int CountOrderNumber()
+        public OperationResult<int> CountOrderNumber()
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int count = orderDAL.CountUserOrder();
-            return count;
+            return new OperationResult<int>() { Result = count, Message = "获取总的订餐人数" };
         }
 
         /// <summary>
