@@ -83,20 +83,17 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        private void ProduceRandom(int count)
+        private List<int> ProduceRandom(int count)
         {
-            //int number = new Random().Next(0, 100);
             int[] values = new int[2];
+			List<int> str = new List<int>();
             Random random = new Random();
             for (int i = 0; i < 2; i++)
                 values[i] = random.Next(0, count);
             string randomName1 = values[0].ToString();
             string randomName2 = values[1].ToString();
-            while (randomName1 == randomName2)
-                values[1] = random.Next(0, count);
-            Console.WriteLine(randomName1);
-            Console.WriteLine(randomName2);
-            Console.ReadKey();
+			return str;
+            
         }
     }
 }
