@@ -50,7 +50,9 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         public void ProduceCleaner(string userName)
         {
-            //得到所有的打扫人数
+            //1.得到所有的打扫人数
+            int orderCount = CountOrderNumber();
+            //2.得到随机数
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.FindByUserOrder(userName);
         }
@@ -69,7 +71,9 @@ namespace NLC.YummyCate.BLL
         /// <returns></returns>
         public int CountOrderNumber()
         {
-            return 21;
+            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+            int count = orderDAL.CountUserOrder();
+            return count;
         }
 
         /// <summary>

@@ -21,13 +21,13 @@ namespace NLC.YummyCate.DAL
             return dBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
-        /// 查询所有的订餐信息人数，返回所有订餐的人数
+        /// 
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
         public List<Order> FindByUserOrder(string userName)
         {
-            string sql = "SELECT * FROM Orderinginformation";
+            string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate(); ;
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<Order>(sql);
         }
@@ -47,7 +47,7 @@ namespace NLC.YummyCate.DAL
             //1.查询员工的姓名
             //2.将员工信息订餐的信息插入到订餐表中
             //string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime)VALUES(1,'userName','name','datetime')";
-            string sql = "INSERT OrderingInformation" + GetCurrentDate() + "(OrderingStateID,UserName,StaffName)VALUES(1,'"+ userName +"','"+name+"')";
+            string sql = "INSERT OrderingInformation" + GetCurrentDate() + "(OrderingStateID,UserName,StaffName)VALUES(1,'" + userName + "','" + name + "')";
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteNonQuery(sql);
         }
@@ -87,7 +87,7 @@ namespace NLC.YummyCate.DAL
             //"select * from sys.tables where name ='表名 ’" select * from  sysobjects where id = object_id('" + tablename + "') and type = 'U'";
             //在指定的数据库中  查找 该表是否存在  
             int dt = Convert.ToInt32(dBHelper.ExecuteScalar(createDbStr));
-            if (dt== 0)
+            if (dt == 0)
             {
                 return false;
             }
@@ -96,7 +96,17 @@ namespace NLC.YummyCate.DAL
                 return true;
             }
         }
+        /// <summary>
+        /// 统计人数,查询所有的订餐信息人数，返回所有订餐的人数
+        /// </summary>
+        /// <returns></returns>
 
-
+        public int CountUserOrder()
+        {
+            string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate();
+            DBHelper dBHelper = new DBHelper();
+            int orderCount = Convert.ToInt32(dBHelper.ExecuteScalar(sql));
+            return orderCount;
+        }
     }
 }

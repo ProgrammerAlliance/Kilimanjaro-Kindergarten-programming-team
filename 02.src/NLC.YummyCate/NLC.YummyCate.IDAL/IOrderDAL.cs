@@ -21,6 +21,7 @@ namespace NLC.YummyCate.IDAL
         /// <param name="userName"></param>
         /// <returns></returns>
         int DeleteUserOrder(String userName);
+        int CountUserOrder();
         /// <summary>
         /// 查询用户订餐信息
         /// </summary>
