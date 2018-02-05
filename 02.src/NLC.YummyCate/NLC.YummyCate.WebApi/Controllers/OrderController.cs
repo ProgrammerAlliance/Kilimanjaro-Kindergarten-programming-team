@@ -31,5 +31,12 @@ namespace NLC.YummyCate.WebApi.Controllers
             // log.log("返回结果:" + userBLL.UserLogin(username, password).ToString());
             return orderBLL.CancelOrder(username);
         }
+
+        [HttpGet]
+        public int Count()
+        {
+            OrderBLL orderBLL = new OrderBLL();
+            return orderBLL.CountOrderNumber();
+        }
     }
 }
