@@ -22,6 +22,7 @@ namespace NLC.YummyCate.WebApi.Controllers
             return orderBLL.ConfirmOrder(username);
         }
 
+        [HttpGet]
         public OperationResult<Boolean> StaffCancelOrder(string username)
         {
             // Log log = new Log("E:/log/Log.txt");
