@@ -79,7 +79,7 @@ namespace NLC.YummyCate.BLL
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int count = orderDAL.CountUserOrder();
-            return new OperationResult<int>() { Result = count, Message = "获取总的订餐人数" };
+            return new OperationResult<int>() { Result = count, Message = "获取总的订餐人数:"+ "Result" };
         }
 
         /// <summary>
