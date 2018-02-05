@@ -39,9 +39,7 @@ namespace NLC.YummyCate.BLL
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int _user = orderDAL.DeleteUserOrder(userName);
             if (_user >= 1)
-            {
-                return new OperationResult<bool>() { Result = true, Message = "取消订餐成功", OrderingState = OrderingStateEnum.IsNullOfOrdering };
-            }
+            { return new OperationResult<bool>() { Result = true, Message = "取消订餐成功", OrderingState = OrderingStateEnum.IsNullOfOrdering }; }
             else
             {
                 return new OperationResult<bool>() { Result = false, Message = "取消订餐失败", OrderingState = OrderingStateEnum.IsOrdering };
@@ -53,10 +51,16 @@ namespace NLC.YummyCate.BLL
         public void ProduceCleaner(string userName)
         {
             //1.得到所有的打扫人数
-          //  int orderCount = CountOrderNumber();
-            //2.得到随机数  
-            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+
+            int orderCount = CountOrderNumber();
+			//2.得到随机数
+			List<int> random = ProduceRandom(orderCount);
+			//3.查找相关人员
+			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.FindByUserOrder(userName);
+			if(random >= 1)
+			{
+			}
         }
 
         /// <summary>
@@ -71,11 +75,11 @@ namespace NLC.YummyCate.BLL
         /// 统计人数
         /// </summary>
         /// <returns></returns>
-        public OperationResult<int> CountOrderNumber()
+        public int CountOrderNumber()
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int count = orderDAL.CountUserOrder();
-            return new OperationResult<int>() { Result = count, Message = "获取总的订餐人数" };
+            return count;
         }
 
         /// <summary>
@@ -89,9 +93,9 @@ namespace NLC.YummyCate.BLL
 			List<int> str = new List<int>();
             Random random = new Random();
             for (int i = 0; i < 2; i++)
-                values[i] = random.Next(0, count);
-            string randomName1 = values[0].ToString();
-            string randomName2 = values[1].ToString();
+             values[i] = random.Next(0, count);
+			str.Add(values[0]);
+			str.Add(values[1]);
 			return str;
             
         }
