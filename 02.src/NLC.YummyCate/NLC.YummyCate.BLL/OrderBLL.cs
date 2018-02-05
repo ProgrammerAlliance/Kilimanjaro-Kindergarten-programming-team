@@ -51,10 +51,16 @@ namespace NLC.YummyCate.BLL
         public void ProduceCleaner(string userName)
         {
             //1.得到所有的打扫人数
+
             int orderCount = CountOrderNumber();
-            //2.得到随机数
-            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+			//2.得到随机数
+			List<int> random = ProduceRandom(orderCount);
+			//3.查找相关人员
+			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.FindByUserOrder(userName);
+			if(random >= 1)
+			{
+			}
         }
 
         /// <summary>
@@ -87,9 +93,9 @@ namespace NLC.YummyCate.BLL
 			List<int> str = new List<int>();
             Random random = new Random();
             for (int i = 0; i < 2; i++)
-                values[i] = random.Next(0, count);
-            string randomName1 = values[0].ToString();
-            string randomName2 = values[1].ToString();
+             values[i] = random.Next(0, count);
+			str.Add(values[0]);
+			str.Add(values[1]);
 			return str;
             
         }
