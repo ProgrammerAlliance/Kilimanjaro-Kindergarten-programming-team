@@ -32,8 +32,9 @@ namespace NLC.YummyCate.DAL
         }
         public List<Order> InsertUserOrder(string userName)//1代表订餐2未订餐
         {
-     
-           // List<Order> staffName = GetStaffName(userName);
+
+            // List<Order> staffName = GetStaffName(userName);
+            string date = GetCurrentDate();
             string name = GetStaffName(userName); 
             //创建当天的订餐信息表
             if (!IsTableExist("OrderingInformation"+ GetCurrentDate()))
@@ -41,7 +42,6 @@ namespace NLC.YummyCate.DAL
                 string createsql = "CREATE TABLE OrderingInformation" + GetCurrentDate() + "(OrderID int,OrderingStateID int,UserName varchar(50),DateTime datetime)";
                 DBHelper dbHelper = new DBHelper();
                 dbHelper.ExecuteNonQuery(createsql);
-
             }
             //1.查询员工的姓名
             //2.将员工信息订餐的信息插入到订餐表中

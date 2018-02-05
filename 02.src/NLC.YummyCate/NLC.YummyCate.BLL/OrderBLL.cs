@@ -24,15 +24,19 @@ namespace NLC.YummyCate.BLL
 			}
 			if (_user.Count == 1)
 			{
-				if (_user[0].OrderingStateID == 1)//
+				if (_user[0].OrderingStateID == OrderingStateEnum.IsOrdering)//
 				{
-					return new OperationResult<bool>() { Result = true, Message = "订餐成功", };
+					return new OperationResult<bool>() { Result = true, Message = "订餐成功", OrderingState= OrderingStateEnum.IsOrdering };
 				}
-				else
+				else if(_user[0].OrderingStateID == OrderingStateEnum.IsNullOfOrdering)
 				{
-					return new OperationResult<bool>() { Result = false, Message = "订餐失败" };
-				}
-			}
+					return new OperationResult<bool>() { Result = false, Message = "订餐失败" , OrderingState = OrderingStateEnum.IsNullOfOrdering };
+                }
+                 else
+                {
+                    throw new Exception("用户异常");
+                }
+            }
 			else
 			{
 				return new OperationResult<bool>() { Result = false, Message = "订餐失败" };
@@ -55,11 +59,11 @@ namespace NLC.YummyCate.BLL
 		/// <summary>
 		/// 产生打扫人员
 		/// </summary>
-		public void ProduceCleaner()
+		public void ProduceCleaner(string userName)
 		{
 			//得到所有的打扫人数
 			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
-			List<Order> _user = orderDAL.FindByUserOrder();
+			List<Order> _user = orderDAL.FindByUserOrder(userName);
 		}
 
 		/// <summary>
