@@ -8,7 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 
-namespace NLC.YummyCate.WebApplication
+namespace NLC.YummyCate.WebApi
 {
     public class Global : HttpApplication
     {

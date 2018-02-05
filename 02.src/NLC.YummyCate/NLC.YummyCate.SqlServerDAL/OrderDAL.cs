@@ -34,7 +34,7 @@ namespace NLC.YummyCate.DAL
         {
      
            // List<Order> staffName = GetStaffName(userName);
-            string name = GetStaffName(userName); ;
+            string name = GetStaffName(userName); 
             //创建当天的订餐信息表
             if (!IsTableExist("OrderingInformation"+ GetCurrentDate()))
             {
@@ -78,7 +78,7 @@ namespace NLC.YummyCate.DAL
         /// <param name="database"></param>
         /// <param name="tablename"></param>
         /// <returns></returns>
-        private bool IsTableExist( string tablename)
+        private bool IsTableExist(string tablename)
         {//"use " + database +
             DBHelper dBHelper = new DBHelper();
             string createDbStr =  " select 1 from  sysobjects where  id = object_id('" + tablename + "') and type = 'U'";

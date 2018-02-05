@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace NLC.YummyCate.WebApplication
+namespace NLC.YummyCate.WebApi
 {
     public static class WebApiConfig
     {
