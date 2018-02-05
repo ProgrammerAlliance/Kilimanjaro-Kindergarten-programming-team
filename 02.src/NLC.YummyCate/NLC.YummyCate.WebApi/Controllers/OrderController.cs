@@ -33,7 +33,7 @@ namespace NLC.YummyCate.WebApi.Controllers
         }
 
         [HttpGet]
-        public int Count()
+        public OperationResult<int> Count()
         {
             OrderBLL orderBLL = new OrderBLL();
             return orderBLL.CountOrderNumber();
