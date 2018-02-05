@@ -54,7 +54,7 @@ namespace NLC.YummyCate.DAL
         }
 
 		/// <summary>
-		/// 
+		/// 打扫人员
 		/// </summary>
 		/// <param name="id1"></param>
 		/// <param name="id2"></param>

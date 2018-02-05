@@ -48,16 +48,25 @@ namespace NLC.YummyCate.BLL
         /// <summary>
         /// 产生打扫人员
         /// </summary>
-        public void ProduceCleaner(string userName)
+        public  OperationResult<bool> ProduceCleaner()
         {
             //1.得到所有的打扫人数
-
-           // int orderCount = CountOrderNumber();
+            int orderCount = CountOrderNumber();
 			//2.得到随机数
-		//	List<int> random = ProduceRandom(orderCount);
+			List<int> random = ProduceRandom(orderCount);
 			//3.查找相关人员
+
 			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
-            List<Order> _user = orderDAL.FindByUserOrder(userName);
+            List<Order> _user = orderDAL.FindCleaner(random[0],random[1]);
+			if (_user.Count == 2)
+			{
+				return new OperationResult<bool>() { GetCleanerName=_user[0].StaffName+_user[1].StaffName,Message="产生打扫人员" };
+			}
+			else
+			{
+				throw new Exception("用户异常");
+			}
+			
 			//if(random >= 1)
 			//{
 			//}

@@ -28,5 +28,6 @@ namespace NLC.YummyCate.IDAL
         /// <param name="userName"></param>
         /// <returns></returns>
         List<Order> FindByUserOrder(string userName);
-    }
+		List<Order> FindCleaner(int num1, int num2);
+	}
 }

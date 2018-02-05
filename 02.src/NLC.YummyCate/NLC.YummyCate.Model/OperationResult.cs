@@ -16,6 +16,7 @@ namespace NLC.YummyCate.Model
         public OrderingStateEnum OrderingState { get; set; }
 
         public int Count { get; set; }
+		public string GetCleanerName { get; set; }
 
         public override string ToString()
         {

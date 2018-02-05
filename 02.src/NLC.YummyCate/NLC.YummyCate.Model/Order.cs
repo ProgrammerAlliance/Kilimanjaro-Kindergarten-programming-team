@@ -57,6 +57,7 @@ namespace NLC.YummyCate.Model
 		/// 员工号
 		/// </summary>
 		public int StaffID { get; set; }
+		public string StaffName { get; set; }
 
 
 
