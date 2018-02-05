@@ -289,7 +289,7 @@ namespace NLC.YummyCate.DBUtility
             return ExecuteReader(command, transaction);
         }
 
-        private DbDataReader ExecuteReader(string commandText)
+        public DbDataReader ExecuteReader(string commandText)
         {
             var command = CreateCommand(commandText);
             return ExecuteReader(command);
