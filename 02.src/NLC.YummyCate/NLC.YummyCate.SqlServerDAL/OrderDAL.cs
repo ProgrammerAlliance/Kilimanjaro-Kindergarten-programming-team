@@ -21,7 +21,7 @@ namespace NLC.YummyCate.DAL
             return dBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
-        /// 
+        /// 查询所有点餐人的信息
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
