@@ -52,12 +52,26 @@ namespace NLC.YummyCate.DAL
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteNonQuery(sql);
         }
-        /// <summary>
-        /// 查询员工的姓名
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        private string GetStaffName(string name)
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id1"></param>
+		/// <param name="id2"></param>
+		/// <returns></returns>
+		public List<Order> FindCleaner(int id1, int id2)
+		{
+			string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate() + " WHERE  OrderID = '" + id1 + " ' +OR+ '" + id2 + " '";
+			DBHelper dBHelper = new DBHelper();
+			return dBHelper.ExecuteList<Order>(sql);
+		}
+
+		/// <summary>
+		/// 查询员工的姓名
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		private string GetStaffName(string name)
         {
             string staffName = string.Empty;
             string sql = "SELECT StaffName FROM UserInformation WHERE IsDeleted = 0 AND UserName = '" + name + "'";
