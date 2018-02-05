@@ -103,7 +103,7 @@ namespace NLC.YummyCate.DAL
 
         public int CountUserOrder()
         {
-            string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate();
+            string sql = "SELECT count(*) FROM OrderingInformation" + GetCurrentDate();
             DBHelper dBHelper = new DBHelper();
             int orderCount = Convert.ToInt32(dBHelper.ExecuteScalar(sql));
             return orderCount;
