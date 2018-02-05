@@ -20,6 +20,7 @@ namespace NLC.YummyCate.DAL
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteNonQuery(sql);
         }
+     
         /// <summary>
         /// 查询所有点餐人的信息
         /// </summary>
