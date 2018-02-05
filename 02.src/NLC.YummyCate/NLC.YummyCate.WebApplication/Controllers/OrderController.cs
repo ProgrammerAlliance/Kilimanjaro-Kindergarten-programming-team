@@ -13,7 +13,7 @@ namespace NLC.YummyCate.WebApplication.Controllers
     {
         [HttpGet]
         // GET: api/Order
-        public OperationResult<Boolean> UserLogin(string username)
+        public OperationResult<Boolean> StaffOrder(string username)
         {
          OrderBLL userBLL = new OrderBLL();
          return userBLL.ConfirmOrder(username);

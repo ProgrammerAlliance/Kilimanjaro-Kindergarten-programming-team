@@ -24,13 +24,17 @@ namespace NLC.YummyCate.BLL
             }
             if (_user.Count == 1)
             {
-                if (_user[0].OrderingStateID==1)//
+                if (_user[0].OrderingStateID==OrderingStateEnum.IsOrdering)
                 {
-                    return new OperationResult<bool>() { Result = true, Message = "订餐成功",};
+                    return new OperationResult<bool>() { Result = true, Message = "订餐成功", OrderingState = OrderingStateEnum.IsOrdering };
+                }
+                else if(_user[0].OrderingStateID == OrderingStateEnum.IsNullOfOrdering)
+                {
+                    return new OperationResult<bool>() { Result = false, Message = "订餐失败", OrderingState = OrderingStateEnum.IsNullOfOrdering };
                 }
                 else
                 {
-                    return new OperationResult<bool>() { Result = false, Message = "订餐失败" };
+                    throw new Exception("用户异常");
                 }
             }
             else
@@ -46,10 +50,10 @@ namespace NLC.YummyCate.BLL
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.DeleteUserOrder(userName);
             if (_user.Count == 1)
-            { return new OperationResult<bool>() { Result = true, Message = "取消订餐成功" }; }
+            { return new OperationResult<bool>() { Result = true, Message = "取消订餐成功", OrderingState = OrderingStateEnum.IsNullOfOrdering }; }
             else
             {
-                return new OperationResult<bool>() { Result = false, Message = "取消订餐失败" };
+                return new OperationResult<bool>() { Result = false, Message = "取消订餐失败" , OrderingState = OrderingStateEnum.IsOrdering };
             }
         }
         /// <summary>
@@ -58,7 +62,7 @@ namespace NLC.YummyCate.BLL
         public void ProduceCleaner()
         {//得到所有的打扫人数
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
-            List<Order> _user = orderDAL.FindByUserOrder();
+          //  List<Order> _user = orderDAL.FindByUserOrder();
          
 			
         }

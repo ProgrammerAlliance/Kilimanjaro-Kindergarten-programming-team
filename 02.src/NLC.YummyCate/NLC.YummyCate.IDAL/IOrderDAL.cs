@@ -26,6 +26,6 @@ namespace NLC.YummyCate.IDAL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        List<Order> FindByUserOrder();
+        List<Order> FindByUserOrder(string userName);
     }
 }
