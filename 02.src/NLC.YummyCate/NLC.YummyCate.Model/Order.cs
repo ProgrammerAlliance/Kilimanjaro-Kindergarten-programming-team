@@ -51,7 +51,7 @@ namespace NLC.YummyCate.Model
 		/// <summary>
 		/// 订餐状态编号
 		/// </summary>
-		public int OrderingStateID { get; set; }
+		public OrderingStateEnum OrderingStateID { get; set; }
 
 		/// <summary>
 		/// 员工号

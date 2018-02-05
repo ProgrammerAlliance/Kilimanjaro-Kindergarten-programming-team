@@ -45,6 +45,7 @@
     <Compile Include="ModelBase.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderingStateEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
