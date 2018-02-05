@@ -15,6 +15,8 @@ namespace NLC.YummyCate.Model
         public AuthorityEnum Authority { get; set; }
         public OrderingStateEnum OrderingState { get; set; }
 
+        public int Count { get; set; }
+
         public override string ToString()
         {
             return Message + "-" + Result.ToString() + "-" + OrderingState.ToString();

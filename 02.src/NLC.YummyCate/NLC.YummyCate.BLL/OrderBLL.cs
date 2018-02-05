@@ -75,11 +75,11 @@ namespace NLC.YummyCate.BLL
         /// 统计人数
         /// </summary>
         /// <returns></returns>
-        public OperationResult<int> CountOrderNumber()
+        public int CountOrderNumber()
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int count = orderDAL.CountUserOrder();
-            return new OperationResult<int>() { Result = count, Message = "获取总的订餐人数:"+ "Result" };
+            return count;
         }
 
         /// <summary>
