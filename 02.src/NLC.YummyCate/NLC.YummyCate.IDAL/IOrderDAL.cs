@@ -20,7 +20,7 @@ namespace NLC.YummyCate.IDAL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        List<Order> DeleteUserOrder(String userName);
+        int DeleteUserOrder(String userName);
         /// <summary>
         /// 查询用户订餐信息
         /// </summary>

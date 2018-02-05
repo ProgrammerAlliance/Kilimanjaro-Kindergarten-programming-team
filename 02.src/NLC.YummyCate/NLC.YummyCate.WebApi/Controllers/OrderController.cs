@@ -21,5 +21,14 @@ namespace NLC.YummyCate.WebApi.Controllers
             // log.log("返回结果:" + userBLL.UserLogin(username, password).ToString());
             return orderBLL.ConfirmOrder(username);
         }
+
+        public OperationResult<Boolean> StaffCancelOrder(string username)
+        {
+            // Log log = new Log("E:/log/Log.txt");
+            // log.log("username:" + username + "," + "password:" + password);
+            OrderBLL orderBLL = new OrderBLL();
+            // log.log("返回结果:" + userBLL.UserLogin(username, password).ToString());
+            return orderBLL.CancelOrder(username);
+        }
     }
 }

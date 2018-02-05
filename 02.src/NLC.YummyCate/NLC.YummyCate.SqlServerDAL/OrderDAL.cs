@@ -14,11 +14,11 @@ namespace NLC.YummyCate.DAL
 {
     public class OrderDAL : IOrderDAL
     {
-        public List<Order> DeleteUserOrder(string userName)
+        public int DeleteUserOrder(string userName)
         {
-            string sql = "Update Orderinginformation SET OrderingStateID=2 WHERE  UserName = '" + userName + "'";
+            string sql = "DELETE FROM OrderingInformation" + GetCurrentDate() + " WHERE  UserName = '" + userName + "'";
             DBHelper dBHelper = new DBHelper();
-            return dBHelper.ExecuteList<Order>(sql);
+            return dBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 查询所有的订餐信息人数，返回所有订餐的人数

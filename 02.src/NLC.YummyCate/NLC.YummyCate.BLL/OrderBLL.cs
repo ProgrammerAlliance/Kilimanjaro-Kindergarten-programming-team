@@ -37,12 +37,12 @@ namespace NLC.YummyCate.BLL
         public OperationResult<Boolean> CancelOrder(string userName)
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
-            List<Order> _user = orderDAL.DeleteUserOrder(userName);
-            if (_user.Count == 1)
-            { return new OperationResult<bool>() { Result = true, Message = "取消订餐成功" }; }
+            int _user = orderDAL.DeleteUserOrder(userName);
+            if (_user >= 1)
+            { return new OperationResult<bool>() { Result = true, Message = "取消订餐成功", OrderingState = OrderingStateEnum.IsNullOfOrdering }; }
             else
             {
-                return new OperationResult<bool>() { Result = false, Message = "取消订餐失败" };
+                return new OperationResult<bool>() { Result = false, Message = "取消订餐失败", OrderingState = OrderingStateEnum.IsOrdering };
             }
         }
         /// <summary>
