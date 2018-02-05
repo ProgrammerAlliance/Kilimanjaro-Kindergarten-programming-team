@@ -14,7 +14,7 @@ namespace NLC.YummyCate.IDAL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        List<Order> InsertUserOrder(String userName);
+       int InsertUserOrder(String userName);
         /// <summary>
         /// 取消用户订餐信息
         /// </summary>

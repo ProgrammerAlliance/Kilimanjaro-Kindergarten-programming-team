@@ -4,6 +4,7 @@ using NLC.YummyCate.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -30,24 +31,25 @@ namespace NLC.YummyCate.DAL
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<Order>(sql);
         }
-        public List<Order> InsertUserOrder(string userName)//1代表订餐2未订餐
+        public int InsertUserOrder(string userName)//1代表订餐2未订餐
         {
 
             // List<Order> staffName = GetStaffName(userName);
             string date = GetCurrentDate();
-            string name = GetStaffName(userName); 
+            string name = GetStaffName(userName);
             //创建当天的订餐信息表
-            if (!IsTableExist("OrderingInformation"+ GetCurrentDate()))
+            if (!IsTableExist("OrderingInformation" + GetCurrentDate()))
             {
-                string createsql = "CREATE TABLE OrderingInformation" + GetCurrentDate() + "(OrderID int,OrderingStateID int,UserName varchar(50),DateTime datetime)";
+                string createsql = "CREATE TABLE OrderingInformation" + GetCurrentDate() + "(OrderID int identity(1,1),OrderingStateID int,UserName varchar(50),StaffName varchar(50), DateTime datetime default getdate(),DepartMentName varchar(50))";
                 DBHelper dbHelper = new DBHelper();
                 dbHelper.ExecuteNonQuery(createsql);
             }
             //1.查询员工的姓名
             //2.将员工信息订餐的信息插入到订餐表中
-            string sql = "INSERT OrderingInformation" + GetCurrentDate() + "(OrderingStateID,UserName,StaffName,DateTime)VALUES(1,'userName','name','datetime')";
+            //string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime)VALUES(1,'userName','name','datetime')";
+            string sql = "INSERT OrderingInformation" + GetCurrentDate() + "(OrderingStateID,UserName,StaffName)VALUES(1,'"+ userName +"','"+name+"')";
             DBHelper dBHelper = new DBHelper();
-            return dBHelper.ExecuteList<Order>(sql);
+            return dBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 查询员工的姓名
@@ -69,7 +71,7 @@ namespace NLC.YummyCate.DAL
         }
         private string GetCurrentDate()
         {
-            string day = DateTime.Today.ToString("yyyy-MM-dd");
+            string day = DateTime.Today.ToString("yyyyMMdd");
             return day;
         }
         /// <summary>
@@ -81,10 +83,11 @@ namespace NLC.YummyCate.DAL
         private bool IsTableExist(string tablename)
         {//"use " + database +
             DBHelper dBHelper = new DBHelper();
-            string createDbStr =  " select 1 from  sysobjects where  id = object_id('" + tablename + "') and type = 'U'";
+            string createDbStr = "select count(1) from sysobjects where name = '" + tablename + "'";
+            //"select * from sys.tables where name ='表名 ’" select * from  sysobjects where id = object_id('" + tablename + "') and type = 'U'";
             //在指定的数据库中  查找 该表是否存在  
-            int dt = dBHelper.ExecuteNonQuery(createDbStr);
-            if (dt == 0)
+            int dt = Convert.ToInt32(dBHelper.ExecuteScalar(createDbStr));
+            if (dt== 0)
             {
                 return false;
             }
