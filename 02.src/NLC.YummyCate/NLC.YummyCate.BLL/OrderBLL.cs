@@ -45,6 +45,7 @@ namespace NLC.YummyCate.BLL
                 return new OperationResult<bool>() { Result = false, Message = "取消订餐失败", OrderingState = OrderingStateEnum.IsOrdering };
             }
         }
+
         /// <summary>
         /// 产生打扫人员
         /// </summary>
@@ -55,7 +56,6 @@ namespace NLC.YummyCate.BLL
 			//2.得到随机数
 			List<int> random = ProduceRandom(orderCount);
 			//3.查找相关人员
-
 			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.FindCleaner(random[0],random[1]);
 			if (_user.Count == 2)

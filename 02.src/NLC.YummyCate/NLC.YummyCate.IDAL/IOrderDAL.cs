@@ -28,6 +28,15 @@ namespace NLC.YummyCate.IDAL
         /// <param name="userName"></param>
         /// <returns></returns>
         List<Order> FindByUserOrder(string userName);
+
+		/// <summary>
+		/// 随机产生打扫人员
+		/// </summary>
+		/// <param name="num1"></param>
+		/// <param name="num2"></param>
+		/// <returns></returns>
 		List<Order> FindCleaner(int num1, int num2);
+		
+		
 	}
 }
