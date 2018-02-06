@@ -19,10 +19,6 @@ namespace NLC.YummyCate.BLL
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int _user = orderDAL.InsertUserOrder(userName);
-            //if (_user == null || _user.Count <= 0)
-            //{
-            //	return new OperationResult<bool>() { Result = false, Message = "订餐失败" };
-            //}
             if (_user >= 1)
             {
                 return new OperationResult<bool>() { Result = true, Message = "订餐成功", OrderingState = OrderingStateEnum.IsOrdering };
@@ -77,6 +73,26 @@ namespace NLC.YummyCate.BLL
             else
             {
                 throw new Exception("用户异常");
+            }
+        }
+        /// <summary>
+        /// 得到员工信息
+        /// </summary>
+        public List<StaffInformationResult> GetStaffInformation()
+        {
+            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+            List<StaffInformationResult> _user = orderDAL.FindByUserOrder();
+            if(_user.Count<=0 )
+            {
+                throw new Exception("程序异常");
+            }
+            else
+            {
+                //for (int i = 0; i < _user.Count; i++)
+                //{
+                //    List<StaffInformationResult> _staff = new List<StaffInformationResult>() { new StaffInformationResult() { StaffName = _user[i].StaffName, datetime = _user[i].DateTime } };
+                  return _user;
+                //}
             }
         }
 

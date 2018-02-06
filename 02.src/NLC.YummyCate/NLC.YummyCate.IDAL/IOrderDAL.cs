@@ -27,7 +27,7 @@ namespace NLC.YummyCate.IDAL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        List<Order> FindByUserOrder(string userName);
+        List<StaffInformationResult> FindByUserOrder();
 
 		/// <summary>
 		/// 随机产生打扫人员

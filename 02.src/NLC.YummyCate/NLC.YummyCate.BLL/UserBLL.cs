@@ -52,5 +52,6 @@ namespace NLC.YummyCate.BLL
                 return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
             }
         }
+       
     }
 }
