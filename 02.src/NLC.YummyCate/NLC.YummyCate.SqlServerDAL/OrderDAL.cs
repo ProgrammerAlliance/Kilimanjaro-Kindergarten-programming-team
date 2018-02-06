@@ -26,11 +26,11 @@ namespace NLC.YummyCate.DAL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public List<Order> FindByUserOrder(string userName)
+        public List<StaffInformationResult> FindByUserOrder()
         {
-            string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate(); 
+            string sql = "SELECT StaffName,DateTime FROM OrderingInformation" + GetCurrentDate(); 
             DBHelper dBHelper = new DBHelper();
-            return dBHelper.ExecuteList<Order>(sql);
+            return dBHelper.ExecuteList<StaffInformationResult>(sql);
         }
         public int InsertUserOrder(string userName)//1代表订餐2未订餐
         {
