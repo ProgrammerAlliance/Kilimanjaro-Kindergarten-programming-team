@@ -2,6 +2,7 @@
 using NLC.YummyCate.IDAL;
 using NLC.YummyCate.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,27 +50,27 @@ namespace NLC.YummyCate.BLL
         /// <summary>
         /// 产生打扫人员
         /// </summary>
-        public  OperationResult<bool> ProduceCleaner()
+        public OperationResult<bool> ProduceCleaner()
         {
             //1.得到所有的打扫人数
             int orderCount = CountOrderNumber();
-			//2.得到随机数
-			List<int> random = ProduceRandom(orderCount);
-			//3.查找相关人员
-			IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
-            List<Order> _user = orderDAL.FindCleaner(random[0],random[1]);
-			if (_user.Count == 2)
-			{
-				return new OperationResult<bool>() { GetCleanerName=_user[0].StaffName+_user[1].StaffName,Message="产生打扫人员" };
-			}
-			else
-			{
-				throw new Exception("用户异常");
-			}
-			
-			//if(random >= 1)
-			//{
-			//}
+            //2.得到随机数
+            List<int> random = ProduceRandom(orderCount);
+            if(random.Count==1)
+            { random[1] = random[0]; }
+            //3.查找相关人员
+            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+            List<Order> _user = orderDAL.FindCleaner(random[0], random[1]);
+            if (_user.Count == 1)
+            { return new OperationResult<bool>() { GetCleanerName = _user[0].StaffName , Message = "产生打扫人员" }; }
+            if (_user.Count == 2)
+            {
+                return new OperationResult<bool>() { GetCleanerName = _user[0].StaffName +"/"+ _user[1].StaffName, Message = "产生打扫人员" };
+            }
+            else
+            {
+                throw new Exception("用户异常");
+            }
         }
 
         /// <summary>
@@ -99,14 +100,26 @@ namespace NLC.YummyCate.BLL
         private List<int> ProduceRandom(int count)
         {
             int[] values = new int[2];
-			List<int> str = new List<int>();
+            List<int> str = new List<int>();
             Random random = new Random();
-            for (int i = 0; i < 2; i++)
-             values[i] = random.Next(0, count);
-			str.Add(values[0]);
-			str.Add(values[1]);
-			return str;
-            
+            if (count > 1 && count <= 4)
+            {
+                str.Add(random.Next(0, count));
+                str.Add(random.Next(0, count));
+                return str;
+            }
+            else
+            {
+                for (int i = 0; i < 2; i++)
+                    values[i] = random.Next(0, count);
+                if (values[0] == values[1])
+                {
+                    values[1] = random.Next(0, count);
+                }
+                str.Add(values[0]);
+                str.Add(values[1]);
+                return str;
+            }
         }
     }
 }
