@@ -28,7 +28,7 @@ namespace NLC.YummyCate.DAL
         /// <returns></returns>
         public List<Order> FindByUserOrder(string userName)
         {
-            string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate(); ;
+            string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate(); 
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<Order>(sql);
         }
@@ -61,7 +61,7 @@ namespace NLC.YummyCate.DAL
 		/// <returns></returns>
 		public List<Order> FindCleaner(int id1, int id2)
 		{
-			string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate() + " WHERE  (OrderID = '" + id1 + " ' OR OrderID= '" + id2 + " ')";
+			string sql = "SELECT * FROM OrderingInformation" + GetCurrentDate() + " WHERE  (OrderID = '" + id1 + " ' OR OrderID '" + id2 + " ')";
 			DBHelper dBHelper = new DBHelper();
 			return dBHelper.ExecuteList<Order>(sql);
 		}

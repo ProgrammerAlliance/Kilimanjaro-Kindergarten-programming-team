@@ -19,10 +19,6 @@ namespace NLC.YummyCate.BLL
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int _user = orderDAL.InsertUserOrder(userName);
-            //if (_user == null || _user.Count <= 0)
-            //{
-            //	return new OperationResult<bool>() { Result = false, Message = "订餐失败" };
-            //}
             if (_user >= 1)
             {
                 return new OperationResult<bool>() { Result = true, Message = "订餐成功", OrderingState = OrderingStateEnum.IsOrdering };
@@ -43,7 +39,7 @@ namespace NLC.YummyCate.BLL
             { return new OperationResult<bool>() { Result = true, Message = "取消订餐成功", OrderingState = OrderingStateEnum.IsNullOfOrdering }; }
             else
             {
-                return new OperationResult<bool>() { Result = false, Message = "取消订餐失败", OrderingState = OrderingStateEnum.IsOrdering };
+                return new OperationResult<bool>() { Result = false, Message = "取消订餐失败", OrderingState = OrderingStateEnum.IsNullOfOrdering };
             }
         }
 
@@ -107,7 +103,7 @@ namespace NLC.YummyCate.BLL
             int[] values = new int[2];
             List<int> str = new List<int>();
             Random random = new Random();
-            if (count > 1 && count <= 4)
+            if (count >= 1 && count <= 4)
             {
                 str.Add(random.Next(0, count));
                 str.Add(random.Next(0, count));
