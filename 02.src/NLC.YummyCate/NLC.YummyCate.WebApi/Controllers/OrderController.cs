@@ -36,6 +36,12 @@ namespace NLC.YummyCate.WebApi.Controllers
 			OrderBLL orderBLL = new OrderBLL();
 			return orderBLL.ProduceCleaner();
 		}
+        [HttpGet]
+        public List<StaffInformationResult> GetAllStaffInfo()
+        {
+            OrderBLL orderBLL = new OrderBLL();
+            return orderBLL.GetStaffInformation();
+        }
 
 
 	}
