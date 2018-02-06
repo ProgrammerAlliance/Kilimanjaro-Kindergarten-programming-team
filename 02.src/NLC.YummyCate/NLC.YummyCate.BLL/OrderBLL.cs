@@ -62,10 +62,15 @@ namespace NLC.YummyCate.BLL
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<Order> _user = orderDAL.FindCleaner(random[0], random[1]);
             if (_user.Count == 1)
-            { return new OperationResult<bool>() { GetCleanerName = _user[0].StaffName , Message = "产生打扫人员" }; }
+            {
+            
+                return new OperationResult<bool>() { GetCleanerName1 =_user[0].StaffName , Message = "产生打扫人员" };
+            }
             if (_user.Count == 2)
             {
-                return new OperationResult<bool>() { GetCleanerName = _user[0].StaffName +"/"+ _user[1].StaffName, Message = "产生打扫人员" };
+                string a = _user[0].StaffName;
+                string b = _user[1].StaffName;
+                return new OperationResult<bool>() { GetCleanerName1 =_user[0].StaffName, GetCleanerName2 =_user[1].StaffName , Message = "产生打扫人员" };
             }
             else
             {
