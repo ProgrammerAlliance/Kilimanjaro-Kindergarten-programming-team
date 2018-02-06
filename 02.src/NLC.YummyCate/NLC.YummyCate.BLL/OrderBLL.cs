@@ -82,7 +82,7 @@ namespace NLC.YummyCate.BLL
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<StaffInformationResult> _user = orderDAL.FindByUserOrder();
-            if (_user.Count <= 0)
+            if (_user.Count < 0)
             {
                 throw new Exception("程序异常");
             }
