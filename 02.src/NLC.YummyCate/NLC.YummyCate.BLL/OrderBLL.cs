@@ -61,14 +61,14 @@ namespace NLC.YummyCate.BLL
             List<Order> _user = orderDAL.FindCleaner(random[0], random[1]);
             if (_user.Count == 1)
             {
-            
-                return new OperationResult<bool>() { GetCleanerName1 =_user[0].StaffName , Message = "产生打扫人员" };
+
+                return new OperationResult<bool>() { GetCleanerName1 = _user[0].StaffName, Message = "产生打扫人员" };
             }
             if (_user.Count == 2)
             {
                 string a = _user[0].StaffName;
                 string b = _user[1].StaffName;
-                return new OperationResult<bool>() { GetCleanerName1 =_user[0].StaffName, GetCleanerName2 =_user[1].StaffName , Message = "产生打扫人员" };
+                return new OperationResult<bool>() { GetCleanerName1 = _user[0].StaffName, GetCleanerName2 = _user[1].StaffName, Message = "产生打扫人员" };
             }
             else
             {
@@ -82,17 +82,13 @@ namespace NLC.YummyCate.BLL
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<StaffInformationResult> _user = orderDAL.FindByUserOrder();
-            if(_user.Count<=0 )
+            if (_user.Count <= 0)
             {
                 throw new Exception("程序异常");
             }
             else
             {
-                //for (int i = 0; i < _user.Count; i++)
-                //{
-                //    List<StaffInformationResult> _staff = new List<StaffInformationResult>() { new StaffInformationResult() { StaffName = _user[i].StaffName, datetime = _user[i].DateTime } };
-                  return _user;
-                //}
+                return _user;
             }
         }
 
@@ -131,7 +127,7 @@ namespace NLC.YummyCate.BLL
                 str.Add(random.Next(0, count));
                 return str;
             }
-            else if(count > 4)
+            else if (count > 4)
             {
                 for (int i = 0; i < 2; i++)
                 {
