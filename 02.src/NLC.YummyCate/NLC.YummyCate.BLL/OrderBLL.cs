@@ -13,9 +13,11 @@ namespace NLC.YummyCate.BLL
     public class OrderBLL
     {
         /// <summary>
-        /// 确认订餐
+        /// 订餐
         /// </summary>
-        public OperationResult<Boolean> ConfirmOrder(string userName)
+        /// <param name="userName">用户名</param>
+        /// <returns></returns>
+        public OperationResult<Boolean> ConfirmOrder(string userName, string meno)
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             int _user = orderDAL.InsertUserOrder(userName);
@@ -28,9 +30,12 @@ namespace NLC.YummyCate.BLL
                 return new OperationResult<bool>() { Result = false, Message = "订餐失败", OrderingState = OrderingStateEnum.IsNullOfOrdering };
             }
         }
+
         /// <summary>
         /// 取消订餐
         /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <returns></returns>
         public OperationResult<Boolean> CancelOrder(string userName)
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
@@ -46,6 +51,7 @@ namespace NLC.YummyCate.BLL
         /// <summary>
         /// 产生打扫人员
         /// </summary>
+        /// <returns></returns>
         public OperationResult<bool> ProduceCleaner()
         {
             int count = CountOrderNumber();
@@ -55,7 +61,6 @@ namespace NLC.YummyCate.BLL
             {
                 return new OperationResult<bool>() { Message = "今日无人订餐" };
             }
-            //3.得到订餐人员
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<StaffInformationResult> _user = orderDAL.FindByUserOrder();
             if (count <= 4)
@@ -67,9 +72,11 @@ namespace NLC.YummyCate.BLL
                 return new OperationResult<bool>() { GetCleanerName1 = _user[random[0]].StaffName, GetCleanerName2 = _user[random[1]].StaffName, Message = "产生打扫人员" };
             }
         }
+
         /// <summary>
         /// 得到员工信息
         /// </summary>
+        /// <returns></returns>
         public List<StaffInformationResult> GetStaffInformation()
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
@@ -85,14 +92,6 @@ namespace NLC.YummyCate.BLL
         }
 
         /// <summary>
-        /// 统计总的金额
-        /// </summary>
-        public float GetExpense()
-        {
-            return 2332;
-        }
-
-        /// <summary>
         /// 统计人数
         /// </summary>
         /// <returns></returns>
@@ -104,7 +103,7 @@ namespace NLC.YummyCate.BLL
         }
 
         /// <summary>
-        /// 产生随机打扫人员
+        /// 产生随机数
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>

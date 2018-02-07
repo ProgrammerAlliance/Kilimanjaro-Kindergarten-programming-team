@@ -13,13 +13,13 @@ namespace NLC.YummyCate.WebApi.Controllers
     {
         // GET: api/Order
         [HttpGet]
-        public OperationResult<Boolean> StaffOrder(string username)
+        public OperationResult<Boolean> StaffOrder(string username, string meno)
         {
             // Log log = new Log("E:/log/Log.txt");
             // log.log("username:" + username + "," + "password:" + password);
             OrderBLL orderBLL = new OrderBLL();
             // log.log("返回结果:" + userBLL.UserLogin(username, password).ToString());
-            return orderBLL.ConfirmOrder(username);
+            return orderBLL.ConfirmOrder(username, meno);
         }
         [HttpGet]
         public OperationResult<Boolean> StaffCancelOrder(string username)

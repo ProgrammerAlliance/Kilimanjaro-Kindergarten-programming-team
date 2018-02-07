@@ -32,7 +32,7 @@ namespace NLC.YummyCate.DAL
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<StaffInformationResult>(sql);
         }
-        public int InsertUserOrder(string userName)//1代表订餐2未订餐
+        public int InsertUserOrder(string userName, string meno)//1代表订餐2未订餐
         {
 
             // List<Order> staffName = GetStaffName(userName);
