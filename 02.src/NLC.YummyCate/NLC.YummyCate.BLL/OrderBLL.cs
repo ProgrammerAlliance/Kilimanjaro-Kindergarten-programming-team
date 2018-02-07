@@ -125,7 +125,7 @@ namespace NLC.YummyCate.BLL
                 {
                     values[i] = random.Next(0, count);
                 }
-                if (values[0] == values[1])
+                while (values[0] == values[1])
                 {
                     values[1] = random.Next(0, count);
                 }
