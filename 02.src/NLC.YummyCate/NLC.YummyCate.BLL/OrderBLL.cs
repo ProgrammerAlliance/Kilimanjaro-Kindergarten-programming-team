@@ -48,8 +48,9 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         public OperationResult<bool> ProduceCleaner()
         {
+            int count = CountOrderNumber();
             //1.得到随机数
-            List<int> random = ProduceRandom();
+            List<int> random = ProduceRandom(count);
             if (random == null)
             {
                 return new OperationResult<bool>() { Message = "今日无人订餐" };
@@ -57,8 +58,14 @@ namespace NLC.YummyCate.BLL
             //3.得到订餐人员
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
             List<StaffInformationResult> _user = orderDAL.FindByUserOrder();
-            return new OperationResult<bool>() { GetCleanerName1 = _user[random[0]].StaffName, GetCleanerName2 = _user[random[1]].StaffName, Message = "产生打扫人员" };
-
+            if (count <= 4)
+            {
+                return new OperationResult<bool>() { GetCleanerName1 = _user[random[0]].StaffName, GetCleanerName2 = "", Message = "产生打扫人员" };
+            }
+            else
+            {
+                return new OperationResult<bool>() { GetCleanerName1 = _user[random[0]].StaffName, GetCleanerName2 = _user[random[1]].StaffName, Message = "产生打扫人员" };
+            }
         }
         /// <summary>
         /// 得到员工信息
@@ -101,9 +108,8 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        private List<int> ProduceRandom()
+        private List<int> ProduceRandom(int count)
         {
-            int count = CountOrderNumber();
             int[] values = new int[2];
             List<int> str = new List<int>();
             Random random = new Random();
