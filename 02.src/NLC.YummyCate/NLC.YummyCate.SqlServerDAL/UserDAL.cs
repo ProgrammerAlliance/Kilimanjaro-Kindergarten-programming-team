@@ -13,6 +13,11 @@ namespace NLC.YummyCate.DAL
 {
     public class UserDAL : IUserDAL
     {
+        /// <summary>
+        /// 根据用户名和密码查找
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public List<User> FindByUserName(string userName)
         {
             string sql = "SELECT UserName,Pwd,TypeID FROM UserInformation WHERE IsDeleted = 0 AND UserName = '" + userName + "'";

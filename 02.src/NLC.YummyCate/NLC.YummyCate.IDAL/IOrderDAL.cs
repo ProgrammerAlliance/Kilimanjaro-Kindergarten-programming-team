@@ -7,21 +7,28 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.IDAL
 {
-   public interface  IOrderDAL
+    public interface IOrderDAL
     {
         /// <summary>
         /// 插入用户订餐信息
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-       int InsertUserOrder(String userName, string memo);
+        int InsertUserOrder(String userName, string memo);
+        
         /// <summary>
         /// 取消用户订餐信息
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
         int DeleteUserOrder(String userName);
+
+        /// <summary>
+        /// 查询订餐人数
+        /// </summary>
+        /// <returns></returns>
         int CountUserOrder();
+        
         /// <summary>
         /// 查询用户订餐信息
         /// </summary>
@@ -29,21 +36,12 @@ namespace NLC.YummyCate.IDAL
         /// <returns></returns>
         List<StaffInformationResult> FindByUserOrder();
 
-		/// <summary>
-		/// 随机产生打扫人员
-		/// </summary>
-		/// <param name="num1"></param>
-		/// <param name="num2"></param>
-		/// <returns></returns>
-		List<Order> FindCleaner(int num1, int num2);
         /// <summary>
-        /// 保存打扫人员
+        /// 随机产生打扫人员
         /// </summary>
-        /// <param name="name1"></param>
-        /// <param name="name2"></param>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
         /// <returns></returns>
-        List<StaffInformationResult> SaveCleaner(string name1, string name2);
-		
-		
-	}
+        List<Order> FindCleaner(int num1, int num2);
+    }
 }

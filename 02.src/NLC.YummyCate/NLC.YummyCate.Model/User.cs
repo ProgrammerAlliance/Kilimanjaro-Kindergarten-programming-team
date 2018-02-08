@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.Model
 {
-    public class User : ModelBase
+    public class User
     {
         /// <summary>
         /// 用户ID
