@@ -6,6 +6,9 @@ using System.IO;
 
 namespace NLC.YummyCate.Common
 {
+    /// <summary>
+    /// 日志
+    /// </summary>
     public class Log
     {
         private string logFile;
@@ -18,7 +21,7 @@ namespace NLC.YummyCate.Common
             CreateDirectory(logFile);
         }
 
-        public void log(string info)
+        public void _Log(string info)
         {
 
             try
