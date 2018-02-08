@@ -14,6 +14,11 @@ namespace NLC.YummyCate.DAL
 {
     public class OrderDAL : IOrderDAL
     {
+        /// <summary>
+        /// 删除订单
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public int DeleteUserOrder(string userName)
         {
             string sql = "DELETE FROM OrderingInformation WHERE  UserName = '" + userName + "'";
@@ -32,13 +37,16 @@ namespace NLC.YummyCate.DAL
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<StaffInformationResult>(sql);
         }
-        public int InsertUserOrder(string userName, string meno)//1代表订餐2未订餐
+
+        /// <summary>
+        /// 插入订单
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="meno"></param>
+        /// <returns></returns>
+        public int InsertUserOrder(string userName, string meno)
         {
             string name = GetStaffName(userName);
-
-            //1.查询员工的姓名
-            //2.将员工信息订餐的信息插入到订餐表中
-            //string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime)VALUES(1,'userName','name','datetime')";
             string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime,Meno)VALUES(1,'" + userName + "','" + name + "',getdate(),'" + meno + "')";
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteNonQuery(sql);
@@ -77,7 +85,6 @@ namespace NLC.YummyCate.DAL
         /// <returns></returns>
         public int CountUserOrder()
         {
-            //select* from info where DateDiff(dd, datetime, getdate()) = 0
             string sql = "SELECT COUNT(*) FROM OrderingInformation WHERE DateDiff(dd, DateTime, getdate()) = 0";
             DBHelper dBHelper = new DBHelper();
             int orderCount = Convert.ToInt32(dBHelper.ExecuteScalar(sql));
