@@ -36,6 +36,13 @@ namespace NLC.YummyCate.IDAL
 		/// <param name="num2"></param>
 		/// <returns></returns>
 		List<Order> FindCleaner(int num1, int num2);
+        /// <summary>
+        /// 保存打扫人员
+        /// </summary>
+        /// <param name="name1"></param>
+        /// <param name="name2"></param>
+        /// <returns></returns>
+        List<StaffInformationResult> SaveCleaner(string name1, string name2);
 		
 		
 	}
