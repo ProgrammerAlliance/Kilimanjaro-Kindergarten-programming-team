@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /02.src/NLC.YummyCate/NLC.YummyCate.WebApplication/Properties/PublishProfiles
+/02.src/react-redux-starterkit/__MACOSX/react-redux-starterkit/tests
