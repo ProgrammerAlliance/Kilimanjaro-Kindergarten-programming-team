@@ -1,0 +1,201 @@
+/*body {*/
+
+/*font-size: 11px;*/
+/*font-family: 'Open Sans', sans-serif;*/
+/*color: #4A4A4A ;*/
+/*text-align: center;*/
+/*}*/
+
+.box4 {
+  margin: 80px auto;
+  min-height: 100px;
+  width: 600px;
+  height: 410px;
+  padding: 10px;
+  position: relative;
+  background: -webkit-gradient(linear, 0% 20%, 0% 100%, from(#fff), to(#fff), color-stop(.2, #f2f2f2));
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.box4:before {
+  content: '';
+  width: 50px;
+  height: 50px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transform: rotate(2deg) translate(-14px, 20px) skew(-20deg);
+}
+
+.box4:after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  display: inline-block;
+  -webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transform: rotate(2deg) translate(12px, 25px) skew(20deg);
+}
+
+/*.shr_box4 {*/
+  /*width: 100px;*/
+  /*height: 100px;*/
+  /*bottom: 0;*/
+  /*right: 0;*/
+  /*background: red;*/
+  /*position: absolute;*/
+  /*z-index: -1;*/
+  /*-webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);*/
+  /*-webkit-transform: rotate(0deg) translate(-20px, -15px) skew(20deg);*/
+/*}*/
+
+/*.shl_box4 {*/
+  /*content: '';*/
+  /*width: 100px;*/
+  /*height: 100px;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*position: absolute;*/
+  /*z-index: -1;*/
+  /*-webkit-box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2);*/
+  /*-webkit-transform: rotate(0deg) translate(20px, -15px) skew(-20deg);*/
+/*}*/
+
+/*.manager p{*/
+/*margin-top: 15px;*/
+/*text-align: justify;*/
+/*}*/
+
+.box4 h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #AE4E4E;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/*.manager a{*/
+/*text-decoration: none;*/
+/*color: #4A4A4A !important;*/
+/*}*/
+
+/*.manager a:hover{*/
+/*text-decoration: underline;*/
+/*color: #6B6B6B !important ;*/
+/*}*/
+
+.manager header {
+  background: indianred;
+  color: white;
+}
+
+.orange {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fef4e9;
+  cursor: pointer;
+  border: solid 1px #da7c0c;
+  background: #f78d1d;
+  /*background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));*/
+  /*background: -moz-linear-gradient(top,  #faa51a,  #f47a20);*/
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+
+.orange:hover {
+  background: #f47c20;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+  background: -moz-linear-gradient(top, #f88e11, #f06015);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+
+.orange:active {
+  color: #fcd3a5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+  background: -moz-linear-gradient(top, #f47a20, #faa51a);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+.ribbon {
+  display: inline-block;
+  margin-left: 5%;
+}
+
+.ribbon:after, .ribbon:before {
+  margin-top: 0.5em;
+  content: '';
+  float: left;
+  border: 1.5em solid orange;
+}
+
+.ribbon:after {
+  border-right-color: transparent;
+}
+
+.ribbon:before {
+  border-left-color: transparent;
+}
+
+.ribbon :link, .ribbon :visited {
+  color: #000;
+  text-decoration: none;
+  float: left;
+  height: 3.5em;
+  overflow: hidden;
+}
+
+.ribbon span {
+  background: #ddd;
+  display: inline-block;
+  line-height: 3em;
+  padding: 0 1em;
+  margin-top: 0.5em;
+  position: relative;
+  letter-spacing: 1px;
+  font-size: 12px;
+  width: 110px;
+  text-align: center;
+
+  -webkit-transition: background-color 0.2s, margin-top 0.2s; /* Saf3.2+, Chrome */
+  -moz-transition: background-color 0.2s, margin-top 0.2s; /* FF4+ */
+  -ms-transition: background-color 0.2s, margin-top 0.2s; /* IE10 */
+  -o-transition: background-color 0.2s, margin-top 0.2s; /* Opera 10.5+ */
+  transition: background-color 0.2s, margin-top 0.2s;
+}
+
+.ribbon :hover span {
+  background: #FFC704;
+  margin-top: 0;
+}
+
+.ribbon span:before {
+  content: '';
+  position: absolute;
+  top: 3em;
+  left: 0;
+  border-right: 0.5em solid #9B8651;
+  border-bottom: 0.5em solid #fff;
+}
+
+.ribbon span:after {
+  content: '';
+  position: absolute;
+  top: 3em;
+  right: 0;
+  border-left: 0.5em solid #9B8651;
+  border-bottom: 0.5em solid #fff;
+}
+
+.ribbon div{
+  display: inline-block;
+}
+
+

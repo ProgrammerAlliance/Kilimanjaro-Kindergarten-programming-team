@@ -1,0 +1,7 @@
+.nameContent{
+  color: black;
+}
+.nameContent span{
+  display: inline-block;
+  margin-right:20px;
+}

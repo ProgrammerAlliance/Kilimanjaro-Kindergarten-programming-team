@@ -1,0 +1,58 @@
+*{
+  box-sizing: border-box;
+}
+.situationBox{
+  height: 280px;
+}
+.situationBox span,.situationBox b{
+  color: black;
+  font-size: 13px;
+}
+.situationContent{
+  margin-left: 50px;
+  padding-top: 15px;
+}
+.eaterNum span{
+  margin-top: 50px;
+  display: inline-block;
+  margin-right: 50px;
+}
+/*.situationBox .addTip{*/
+  /*width: 500px;*/
+  /*margin-top: 15px;*/
+  /*background: pink;*/
+/*}*/
+
+/*.situationBox .addTip .tipTag{*/
+  /*background: orange;*/
+  /*float: left;*/
+  /*width: 30px;*/
+  /*height: 130px;*/
+  /*text-align: center;*/
+  /*border-radius: 5px 0 0 5px;*/
+  /*font-size: 15px;*/
+
+/*}*/
+/*.situationBox .tipTag span{*/
+  /*display: block;*/
+  /*font-size: 12px;*/
+  /*margin-top: 30px;*/
+/*}*/
+/*.situationBox .addTip .tipBox{*/
+  /*padding: 10px;*/
+  /*width: 440px;*/
+  /*height: 130px;*/
+  /*border:1px darkred dashed;*/
+  /*float: left;*/
+  /*outline:none;*/
+/*}*/
+.situationBox .link{
+  margin-left: 30%;
+}
+.face{
+  /*float: left;*/
+  margin-left: 140px;
+  margin-top: -140px;
+  width: 390px;
+  height: 340px;
+}

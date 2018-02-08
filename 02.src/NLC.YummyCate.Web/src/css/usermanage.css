@@ -1,0 +1,18 @@
+p{
+  margin: 0;
+  padding: 0;
+}
+.userManageList{
+  width: 540px;
+  height: 250px;
+  background: url("../picture/lemon.jpg") no-repeat;
+  background-size: 100%;
+  margin: 20px auto;
+  overflow-y: auto;
+  padding: 20px;
+  column-count: 1;
+  /*column-width: 120px;*/
+}
+.nameContent{
+  margin-bottom: 10px;
+}

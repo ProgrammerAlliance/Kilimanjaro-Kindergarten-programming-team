@@ -1,0 +1,133 @@
+
+.user .box4 {
+  width: 440px;
+  height: 380px;
+  margin-top: 145px;
+}
+
+.user .link {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80px;
+  margin-left: 38px;
+}
+
+.box4 h1 {
+  margin: 15px;
+}
+
+.box4 .userTip {
+  text-align: center;
+  font-family: "Yuanti SC";
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: gray;
+
+}
+
+.box4 .userTip span {
+  color: darkred;
+  font-size: 10px;
+}
+
+.user #link {
+  background: white;
+  margin-left: 38px;
+}
+
+.btns {
+  /*background-image: linear-gradient(to top,lightgoldenrodyellow,white);*/
+  padding-top: 10px;
+  width: 400px;
+  height: 150px;
+
+}
+
+.orderSituation {
+  text-align: center;
+  margin-top: 90px;
+}
+.orderSituation span{
+  display: inline;
+  z-index: 999;
+  color: #666;
+  font-weight: bold;
+}
+
+.orderSituation #show {
+  display: inline;
+}
+
+.orderSituation #hide {
+  display: none;
+}
+
+.user #show{
+  display: block;
+}
+
+.user #hide{
+  display: none;
+}
+/*.user .tipTag{*/
+  /*height: 50px;*/
+/*}*/
+#disable{
+  pointer-events:none;
+  background: lightgray;
+  z-index: 998;
+}
+
+.user .addTip{
+  width: 500px;
+  margin-left: 10px;
+  /*margin-top: 15px;*/
+}
+
+.user .addTip .tipTag{
+  background: orange;
+  /*border: 2px solid #D69E31;*/
+  float: left;
+  width: 30px;
+  height: 65px;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  font-size: 15px;
+
+}
+.user .tipTag span{
+  display: block;
+  font-size: 12px;
+  margin-top: 9px;
+  color: white;
+}
+.user .addTip .tipBox{
+  padding: 10px;
+  width: 365px;
+  height: 65px;
+
+  float: left;
+  outline:none;
+  border: 1px solid #D69E31;
+}
+.user  #disable{
+  disabled:disabled;
+}
+
+.deadline {
+  width: 100%;
+  /*width: 420px;*/
+  height: 110px;
+  background:rgba(0,0,0,0.65);
+  position: absolute;
+  top: 110px;
+  /*left: 259px;*/
+  z-index: 999;
+  text-align: center;
+  line-height: 100px;
+  color: orange;
+  letter-spacing: 1px;
+  z-index: 999;
+}

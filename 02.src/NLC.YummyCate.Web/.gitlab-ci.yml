@@ -1,0 +1,43 @@
+image: docker.aecg.com.cn/node-runtime:latest
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - . ~/.nvm/nvm.sh && nvm use default
+  - npm config set registry=http://npm.aecg.com.cn
+  - npm install
+
+lint:
+  stage: test
+  script:
+    - npm run lint
+
+test:
+  stage: test
+  script:
+    - npm run test
+
+build:
+  stage: build
+  script:
+    - npm run build
+  only:
+    - master
+
+deploy_dev:
+  stage: deploy
+  environment:
+    name: dev
+  script:
+    - echo 'Deploying'
+
+
