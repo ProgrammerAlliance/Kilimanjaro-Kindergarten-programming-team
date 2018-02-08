@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.Model
 {
+    /// <summary>
+    /// 订餐状态
+    /// </summary>
     public enum OrderingStateEnum
     {
         IsOrdering=1,

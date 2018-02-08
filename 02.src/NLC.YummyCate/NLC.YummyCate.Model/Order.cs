@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLC.YummyCate.Model
 {
-    public class Order : ModelBase
+    public class Order
     {
         /// <summary>
         /// 点餐号
@@ -57,9 +57,10 @@ namespace NLC.YummyCate.Model
 		/// 员工号
 		/// </summary>
 		public int StaffID { get; set; }
+
+        /// <summary>
+        /// 员工姓名
+        /// </summary>
 		public string StaffName { get; set; }
-
-
-
     }
 }

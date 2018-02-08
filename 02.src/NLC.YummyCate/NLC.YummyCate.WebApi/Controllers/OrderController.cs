@@ -15,34 +15,29 @@ namespace NLC.YummyCate.WebApi.Controllers
         [HttpGet]
         public OperationResult<Boolean> StaffOrder(string username, string meno)
         {
-            // Log log = new Log("E:/log/Log.txt");
-            // log.log("username:" + username + "," + "password:" + password);
             OrderBLL orderBLL = new OrderBLL();
-            // log.log("返回结果:" + userBLL.UserLogin(username, password).ToString());
             return orderBLL.ConfirmOrder(username, meno);
         }
+
         [HttpGet]
         public OperationResult<Boolean> StaffCancelOrder(string username)
         {
-            // Log log = new Log("E:/log/Log.txt");
-            // log.log("username:" + username + "," + "password:" + password);
             OrderBLL orderBLL = new OrderBLL();
-            // log.log("返回结果:" + userBLL.UserLogin(username, password).ToString());
             return orderBLL.CancelOrder(username);
         }
+
 		[HttpGet]
 		public OperationResult<Boolean> ProduceCleanerName()
 		{
 			OrderBLL orderBLL = new OrderBLL();
 			return orderBLL.ProduceCleaner();
 		}
+
         [HttpGet]
         public List<StaffInformationResult> GetAllStaffInfo()
         {
             OrderBLL orderBLL = new OrderBLL();
             return orderBLL.GetStaffInformation();
         }
-
-
 	}
 }
