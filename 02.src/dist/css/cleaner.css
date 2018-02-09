@@ -1,0 +1,35 @@
+.cleaner{
+  width: 465px;
+  height: 260px;
+  margin-left: 50px;
+  padding-top:40px;
+  color: black;
+}
+.cleanerContent{
+  margin-left: 23%;
+}
+.cleanerButton{
+  width:250px;
+  height: 30px;
+  background: orange;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.cleanerBox{
+  width:250px;
+  height: 150px;
+  border: 1px darkred dashed;
+  text-align: center;
+  background:url("../picture/hand.png") no-repeat;
+  background-size: 100% 120%;
+}
+.cleanerBox p{
+  margin-top: 35px;
+}
+
+
+

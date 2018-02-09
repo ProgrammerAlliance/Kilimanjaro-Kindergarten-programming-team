@@ -15,7 +15,10 @@ namespace NLC.YummyCate.WebApi.Controllers
         [HttpGet]
         public OperationResult<Boolean> UserLogin(string username, string password)
         {
+            Log log = new Log("E:/log/Log.txt");
+            log._Log("username:" + username + "," + "password:" + password);
             UserBLL userBLL = new UserBLL();
+            log._Log("返回结果:" + userBLL.UserLogin(username, password).ToString());
             return userBLL.UserLogin(username, password);
         }
 
