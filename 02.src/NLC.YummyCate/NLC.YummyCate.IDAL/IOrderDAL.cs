@@ -43,5 +43,7 @@ namespace NLC.YummyCate.IDAL
         /// <param name="num2"></param>
         /// <returns></returns>
         List<Order> FindCleaner(int num1, int num2);
+
+        List<Order> OrderingPeople(string username);
     }
 }

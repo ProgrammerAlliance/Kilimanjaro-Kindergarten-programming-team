@@ -35,13 +35,16 @@ namespace NLC.YummyCate.DAL
         public int InsertUserOrder(string userName, string meno)//1代表订餐2未订餐
         {
             string name = GetStaffName(userName);
-
-            //1.查询员工的姓名
-            //2.将员工信息订餐的信息插入到订餐表中
-            //string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime)VALUES(1,'userName','name','datetime')";
-            string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime,Meno)VALUES(1,'" + userName + "','" + name + "',getdate(),'" + meno + "')";
-            DBHelper dBHelper = new DBHelper();
-            return dBHelper.ExecuteNonQuery(sql);
+            if (OrderingPeople(userName).Count > 0)
+            {
+                return 0;
+            }
+            else
+            {
+                string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime,Meno)VALUES(1,'" + userName + "','" + name + "',getdate(),'" + meno + "')";
+                DBHelper dBHelper = new DBHelper();
+                return dBHelper.ExecuteNonQuery(sql);
+            }
         }
 
         /// <summary>
@@ -87,11 +90,18 @@ namespace NLC.YummyCate.DAL
         /// 保存当天的打扫人员
         /// </summary>
         /// <returns></returns>
-        public List<StaffInformationResult> SaveCleaner(string name1,string name2)
+        public List<StaffInformationResult> SaveCleaner(string name1, string name2)
         {
             string sql = "INSERT OrderingInformation () VALUES (name1,name2)";
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<StaffInformationResult>(sql);
+        }
+
+        public List<Order> OrderingPeople(string username)
+        {
+            string sql = "SELECT * FROM OrderingInformation WHERE UserName = '" + username + "' AND DateDiff(dd, DateTime, getdate()) = 0";
+            DBHelper dBHelper = new DBHelper();
+            return dBHelper.ExecuteList<Order>(sql);
         }
     }
 }

@@ -137,5 +137,19 @@ namespace NLC.YummyCate.BLL
                 return str;
             }
         }
+
+        public OrderingStateEnum IsOrder(string username)
+        {
+            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+            int indexcount = orderDAL.OrderingPeople(username).Count();
+            if (indexcount > 0)
+            {
+                return OrderingStateEnum.IsOrdering;
+            }
+            else
+            {
+                return OrderingStateEnum.IsNullOfOrdering;
+            }
+        }
     }
 }

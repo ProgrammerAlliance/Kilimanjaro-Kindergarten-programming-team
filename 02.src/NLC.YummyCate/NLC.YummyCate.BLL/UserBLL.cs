@@ -21,7 +21,7 @@ namespace NLC.YummyCate.BLL
         {
             IUserDAL userDAL = UserDALFactory.CreateUserDAL();
             List<User> _user = userDAL.FindByUserName(userName);
-
+            OrderBLL orderBLL = new OrderBLL();
             if (_user == null || _user.Count <= 0)
             {
                 return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
@@ -35,12 +35,11 @@ namespace NLC.YummyCate.BLL
 
                 if (_user[0].TypeID == AuthorityEnum.NormalUser)
                 {
-                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.NormalUser };
+                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.NormalUser, OrderingState = orderBLL.IsOrder(userName) };
                 }
                 else if (_user[0].TypeID == AuthorityEnum.Administor)
                 {
-                    OrderBLL orderBLL = new OrderBLL();
-                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.Administor, Count = orderBLL.CountOrderNumber() };
+                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.Administor, OrderingState = orderBLL.IsOrder(userName), Count = orderBLL.CountOrderNumber() };
                 }
                 else
                 {
@@ -52,5 +51,7 @@ namespace NLC.YummyCate.BLL
                 return new OperationResult<bool>() { Result = false, Message = "用户名或密码错误" };
             }
         }
+
+
     }
 }
