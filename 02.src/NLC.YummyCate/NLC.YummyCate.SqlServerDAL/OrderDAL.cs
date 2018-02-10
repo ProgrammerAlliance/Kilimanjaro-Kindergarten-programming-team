@@ -104,6 +104,13 @@ namespace NLC.YummyCate.DAL
             return dBHelper.ExecuteList<Order>(sql);
         }
 
+        public List<StaffInformationResult> IsAddMeno(string username)
+        {
+            string sql = "SELECT * FROM OrderingInformation WHERE UserName = '" + username + "' AND DateDiff(dd, DateTime, getdate()) = 0";
+            DBHelper dBHelper = new DBHelper();
+            return dBHelper.ExecuteList<StaffInformationResult>(sql);
+        }
+
         //public int InsertUserOrder(UserInfo user)
         //{
         //    string name = GetStaffName(user.UserName);

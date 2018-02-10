@@ -21,6 +21,7 @@ namespace NLC.YummyCate.Model
 		public string GetCleanerName1 { get; set; }
 
         public string GetCleanerName2{ get; set; }
+        public string Meno { get; set; }
 
         public override string ToString()
         {

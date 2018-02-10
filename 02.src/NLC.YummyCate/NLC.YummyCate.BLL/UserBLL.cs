@@ -35,7 +35,7 @@ namespace NLC.YummyCate.BLL
 
                 if (_user[0].TypeID == AuthorityEnum.NormalUser)
                 {
-                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.NormalUser, OrderingState = orderBLL.IsOrder(userName) };
+                    return new OperationResult<bool>() { Result = true, Message = "登录成功", Authority = AuthorityEnum.NormalUser, OrderingState = orderBLL.IsOrder(userName),Meno=orderBLL.IsMeno(userName) };
                 }
                 else if (_user[0].TypeID == AuthorityEnum.Administor)
                 {

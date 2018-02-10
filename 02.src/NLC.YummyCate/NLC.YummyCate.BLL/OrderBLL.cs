@@ -137,7 +137,11 @@ namespace NLC.YummyCate.BLL
                 return str;
             }
         }
-
+        /// <summary>
+        /// 查询订餐的状态
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public OrderingStateEnum IsOrder(string username)
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
@@ -150,6 +154,21 @@ namespace NLC.YummyCate.BLL
             {
                 return OrderingStateEnum.IsNullOfOrdering;
             }
+        }
+        public string IsMeno(string username)
+        {
+            IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
+            List<StaffInformationResult> _user = orderDAL.IsAddMeno(username);
+            int indexcount = _user.Count();
+            if (indexcount > 0)
+            {
+                return _user[0].Meno;
+            }
+            else
+            {
+                return "";
+            }
+           
         }
     }
 }
