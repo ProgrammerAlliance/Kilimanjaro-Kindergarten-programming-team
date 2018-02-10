@@ -16,19 +16,9 @@ namespace NLC.YummyCate.DAL
     {
         public int DeleteUserOrder(string userName)
         {
-            if (OrderingPeople(userName).Count > 0)
-            {
                 string sql = "DELETE FROM OrderingInformation WHERE  UserName = '" + userName + "'";
                 DBHelper dBHelper = new DBHelper();
                 return dBHelper.ExecuteNonQuery(sql);
-            }
-            else
-            {
-                return 0;
-            }
-            //string sql = "DELETE FROM OrderingInformation WHERE  UserName = '" + userName + "'";
-            //DBHelper dBHelper = new DBHelper();
-            //return dBHelper.ExecuteNonQuery(sql);
         }
 
         /// <summary>
@@ -113,5 +103,20 @@ namespace NLC.YummyCate.DAL
             DBHelper dBHelper = new DBHelper();
             return dBHelper.ExecuteList<Order>(sql);
         }
+
+        //public int InsertUserOrder(UserInfo user)
+        //{
+        //    string name = GetStaffName(user.UserName);
+        //    if (OrderingPeople(user.UserName).Count > 0)
+        //    {
+        //        return 0;
+        //    }
+        //    else
+        //    {
+        //        string sql = "INSERT OrderingInformation (OrderingStateID,UserName,StaffName,DateTime,Meno)VALUES(1,'" + user.UserName + "','" + name + "',getdate(),'" + user.Meno + "')";
+        //        DBHelper dBHelper = new DBHelper();
+        //        return dBHelper.ExecuteNonQuery(sql);
+        //    }
+        //}
     }
 }

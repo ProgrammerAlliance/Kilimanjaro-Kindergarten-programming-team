@@ -17,10 +17,10 @@ namespace NLC.YummyCate.BLL
         /// </summary>
         /// <param name="userName">用户名</param>
         /// <returns></returns>
-        public OperationResult<Boolean> ConfirmOrder(string userName, string meno)
+        public OperationResult<Boolean> ConfirmOrder(string username,string meno)
         {
             IOrderDAL orderDAL = OrderDALFactory.CreateOrderDAL();
-            int _user = orderDAL.InsertUserOrder(userName,meno);
+            int _user = orderDAL.InsertUserOrder(username, meno);
             if (_user >= 1)
             {
                 return new OperationResult<bool>() { Result = true, Message = "订餐成功", OrderingState = OrderingStateEnum.IsOrdering };

@@ -11,32 +11,29 @@ namespace NLC.YummyCate.WebApi.Controllers
 {
     public class OrderController : ApiController
     {
+        OrderBLL orderBLL = new OrderBLL();
         // GET: api/Order
-        [HttpGet]
-        public OperationResult<Boolean> StaffOrder(string username, string meno)
+        [HttpPost]
+        public OperationResult<Boolean> StaffOrder([FromBody]UserInfo user)
         {
-            OrderBLL orderBLL = new OrderBLL();
-            return orderBLL.ConfirmOrder(username, meno);
+            return orderBLL.ConfirmOrder(user.UserName,user.Meno);
         }
 
-        [HttpGet]
-        public OperationResult<Boolean> StaffCancelOrder(string username)
+        [HttpDelete]
+        public OperationResult<Boolean> DeleteStaffCancelOrder(UserInfo user)
         {
-            OrderBLL orderBLL = new OrderBLL();
-            return orderBLL.CancelOrder(username);
+            return orderBLL.CancelOrder(user.UserName);
         }
 
 		[HttpGet]
 		public OperationResult<Boolean> ProduceCleanerName()
 		{
-			OrderBLL orderBLL = new OrderBLL();
 			return orderBLL.ProduceCleaner();
 		}
 
         [HttpGet]
         public List<StaffInformationResult> GetAllStaffInfo()
         {
-            OrderBLL orderBLL = new OrderBLL();
             return orderBLL.GetStaffInformation();
         }
 	}

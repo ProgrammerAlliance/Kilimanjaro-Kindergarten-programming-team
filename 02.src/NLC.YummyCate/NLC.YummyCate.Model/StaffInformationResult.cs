@@ -10,7 +10,7 @@ namespace NLC.YummyCate.Model
     {
         public string StaffName { get; set; }
 
-        public DateTime Datetime { get; set; }
+       public DateTime Datetime { get; set; }
 
         public string Meno { get; set; }
     }

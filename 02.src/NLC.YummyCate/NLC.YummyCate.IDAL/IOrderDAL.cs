@@ -14,14 +14,14 @@ namespace NLC.YummyCate.IDAL
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        int InsertUserOrder(String userName, string memo);
+        int InsertUserOrder(string userName,string meno);
         
         /// <summary>
         /// 取消用户订餐信息
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        int DeleteUserOrder(String userName);
+        int DeleteUserOrder(string userName);
 
         /// <summary>
         /// 查询订餐人数
