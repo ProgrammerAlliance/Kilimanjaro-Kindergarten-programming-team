@@ -16,9 +16,19 @@ namespace NLC.YummyCate.DAL
     {
         public int DeleteUserOrder(string userName)
         {
-            string sql = "DELETE FROM OrderingInformation WHERE  UserName = '" + userName + "'";
-            DBHelper dBHelper = new DBHelper();
-            return dBHelper.ExecuteNonQuery(sql);
+            if (OrderingPeople(userName).Count > 0)
+            {
+                string sql = "DELETE FROM OrderingInformation WHERE  UserName = '" + userName + "'";
+                DBHelper dBHelper = new DBHelper();
+                return dBHelper.ExecuteNonQuery(sql);
+            }
+            else
+            {
+                return 0;
+            }
+            //string sql = "DELETE FROM OrderingInformation WHERE  UserName = '" + userName + "'";
+            //DBHelper dBHelper = new DBHelper();
+            //return dBHelper.ExecuteNonQuery(sql);
         }
 
         /// <summary>
